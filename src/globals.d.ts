@@ -1,0 +1,3 @@
+interface NodeRequireFunction {
+  ensure: any;
+}

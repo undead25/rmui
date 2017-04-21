@@ -1,0 +1,15 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\config",
+    "\\example",
+    "\\example\\routes",
+    "\\example\\routes\\button",
+    "\\example\\routes\\cards",
+    "\\example\\store",
+    "\\src",
+    "\\src\\component"
+  ],
+  "SelectedNode": "\\src\\component\\cards",
+  "PreviewInSolutionExplorer": false
+}

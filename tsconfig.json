@@ -1,0 +1,30 @@
+{
+  "compilerOptions": {
+    "sourceMap": true,
+    "strictNullChecks": true,
+    "noUnusedParameters": false,
+    "allowSyntheticDefaultImports": true,
+    "module": "commonjs",
+    "target": "es5",
+    "jsx": "react"
+  },
+  "lib": [
+    "dom",
+    "es6",
+    "es7"
+  ],
+  "awesomeTypescriptLoaderOptions": {
+    "useBabel": true,
+    "useCache": false,
+    "emitRequireType": false
+  },
+  "include": [
+    "./src/**/*",
+    "./example/**/*"
+  ],
+  "exclude": [
+    "node_modules"
+  ],
+  "compileOnSave": false,
+  "buildOnSave": false
+}

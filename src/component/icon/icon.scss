@@ -1,0 +1,9 @@
+@import '../styles/index.scss';
+
+.iconfont {
+  @each $color-name in map-keys($colorful) {
+    &.icon-#{$color-name} {
+      color: map-get($colorful, $color-name);
+    }
+  }
+}
