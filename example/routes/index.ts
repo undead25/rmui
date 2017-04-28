@@ -9,10 +9,14 @@ import PageWrap from './page';
 import PageWall from './wall';
 import PageSpace from './space';
 import PageToast from './toast';
+import Home from './home';
 import Layout from './layout';
 
 export const Routes = (store: any) => ({
   path: '/',
+  indexRoute: {
+    component: Home
+  },
   component: Layout,
   childRoutes: [
     PageButton(store),
@@ -26,8 +30,7 @@ export const Routes = (store: any) => ({
     PageWall(store),
     PageSpace(store),
     PageToast(store)
-   
   ]
-})
+});
 
 export default Routes;

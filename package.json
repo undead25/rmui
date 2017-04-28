@@ -8,9 +8,7 @@
     "start": "webpack-dev-server --config config/webpack.dev.config.js --progress --open",
     "prebuild": "npm run clean",
     "build": "webpack --config config/webpack.prod.config.js",
-    "postbuild": "http-server dist -p 8001 -o",
-    "eslint": "eslint src/**/*.tsx",
-    "lint:find-rules": "eslint-find-rules -u .eslintrc.js"
+    "postbuild": "http-server dist -p 8001 -o"
   },
   "keywords": [],
   "author": "cf-fed",

@@ -3,13 +3,13 @@ import * as classNames from 'classnames';
 import PropTypes from 'prop-types';
 import './button.scss';
 
-
-export function Button(props: MUI.ButtonProps) {
-  const { children, type, className='', onClick, style, ...others } = props;
+export default function Button(props: MUI.ButtonProps) {
+  const { children, type, className, onClick, style, ...others } = props;
   const cls = classNames({
-    'btn':true,
-    [className]:!!className
-  })
+    'btn': true,
+    [className as string]: className
+  });
+
   return (
     <button
       className={cls}
@@ -20,7 +20,5 @@ export function Button(props: MUI.ButtonProps) {
     >
       {props.children}
     </button>
-  )
+  );
 }
-
-export default Button;
