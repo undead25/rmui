@@ -2,8 +2,10 @@
 import * as ReactDOM from 'react-dom';
 import { hashHistory, Router } from 'react-router';
 import { Provider } from 'react-redux';
+
 import configureStore from './store/configureStore';
 import '../src/component/styles/index.scss';
+import './example.scss';
 
 class App extends React.Component<any, any> {
   public shouldComponentUpdate(): boolean {

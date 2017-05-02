@@ -1,11 +1,18 @@
 .example {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  
   .hd {
-    padding: .4rem;
+    padding: 40px;
+
+    h1 {
+      font-size: 44px;
+      margin-bottom: 0;
+    }
+
+    p {
+      color: #888;
+    }
+  }
+
+  .bd {
+    padding-bottom: 176px;
   }
 }

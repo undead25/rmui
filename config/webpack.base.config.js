@@ -68,7 +68,7 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        // exclude: /(node_modules)/,
+        exclude: /(node_modules)/,
         loader: ExtractTextPlugin.extract({
           fallback: 'style-loader',
           use: 'css-loader?minimize&sourceMap!postcss-loader',

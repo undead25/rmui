@@ -1,0 +1,9 @@
+@import '../styles/variable';
+
+.wrapper {
+  @each $size in map-keys($wrapper) {
+    &.#{$size} {
+      margin: 0 map-get($wrapper, $size);
+    }
+  }
+}

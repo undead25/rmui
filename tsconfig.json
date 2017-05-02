@@ -3,10 +3,12 @@
     "sourceMap": true,
     "strictNullChecks": true,
     "noUnusedParameters": false,
+    "noUnusedLocals": false,
     "allowSyntheticDefaultImports": true,
     "module": "commonjs",
+    "moduleResolution": "node",
     "target": "es5",
-    "jsx": "react"
+    "jsx": "preserve"
   },
   "lib": [
     "dom",

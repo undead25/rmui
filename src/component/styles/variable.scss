@@ -23,20 +23,9 @@ $color-text-gray: #999 !default;
 $color-text-input: #4c4c4c !default;
 $gray-light: rgba(0, 0, 0, 0.38) !default;
 
-$color-tap: rgba(0, 0, 0, 0) !default;
 
-$colorful: (
-  primary: $color-brand,
-  syan: #32c1d4,
-  orange: #ffbe23,
-  darker: #4c4c4c,
-  dark: #8f8f94,
-  gray: #c7c7cc,
-  light: #d9d9d9,
-  lighter: #f8f8f8,
-  black:#0a0a0a,
-  blue:#6dbfe2,
-) !default;
+
+
 
 // 基本尺寸
 $width-sm-base: .15rem;
@@ -77,18 +66,80 @@ $cell-icon-md-size: 1.5rem !default;
 $cell-icon-xs-size: 1.2rem !default;
 
 
-// buttons 按钮
-$btn-default-bg: transparent !default;
-$btn-default-color: #000 !default;
-$btn-height: .98rem !default; //(98px)
-$btn-font-size: $font-size-md !default; //(18px)
-$btn-radius: 5px !default;
+
+/* Color 颜色
+   ========================================================================== */
+$color-black: #030303 !default;   
+$color-border: #c8c7cc !default;
+
+$colorful: (
+  primary: $color-brand,
+  cyan: #32c1d4,
+  orange: #ffbe23,
+  blue:#6dbfe2,
+  green: #1aad19
+) !default;
+
+/* Font 字体
+   ========================================================================== */
+$font-family-base: -apple-system, "SF UI Text", Roboto, Noto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+$font-family-code: Consolas, Menlo, Courier, monospace;
+
+
+/* Wrapper
+   ========================================================================== */
+$wrapper: (
+  lg: 30px,
+  md: 16px,
+  sm: 10px
+) !default;
+
+
+/* Button
+   ========================================================================== */
+$btn-bg: transparent !default;
+$btn-color: #000 !default;
+$btn-padding: 0 30px !default;
+$btn-height: 84px !default;
+$btn-font-size: 36px !default;
+$btn-radius: 10px !default;
+$btn-border: 1px solid rgba(0, 0, 0, .2) !default;
 
 $btn-active-bg: #dedede !default;
 $btn-active-color: rgba(0,0,0,.6) !default;
 
-$btn-disabled-bg: #d9d9d9 !default;
-$btn-disabled-color: rgba(0,0,0,.3) !default;
+$btn-disabled-bg: #f7f7f7 !default;
+$btn-disabled-color: rgba(0, 0, 0, .3) !default;
+
+$btn-sm-height: 60px !default;
+$btn-sm-font-size: 26px !default;
+
+$btn-round-radius: 100px !default;
+
+
+/* List 列表
+   ========================================================================== */
+$list-header-padding: 30px 30px 18px !default;
+$list-header-color: #6d6d72 !default;
+$list-header-font-size: 26px !default;
+
+$list-bg: #fff !default;
+$list-item-min-height: 88px !default;
+$list-item-h-gap: 30px !default;
+$list-item-font-size: 34px !default;
+
+$list-value-color: #8f8f8f !default;
+
+$list-arrow-size: 28px !default;
+$list-arrow-margin-left: 16px !default;
+
+$list-thumb-size: 58px !default;
+
+$list-subtitle-font-size: 24px !default;
+$list-subtitle-color: #8f8f8f !default;
+
+$list-multiline-padding: 25px 30px 25px 0 !default;
+
 
 // mask 遮罩
 $mask-bg: rgba(0, 0, 0, .6) !default;

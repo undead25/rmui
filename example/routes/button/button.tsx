@@ -1,43 +1,40 @@
 ﻿import * as React from 'react';
 import { connect } from 'react-redux';
-import { Button, Vcode } from '../../../src/component/button';
-import { loginAction } from './button.redux';
-import { Flex } from '../../../src/component/flex';
-class PageButton extends React.Component<any, any> {
 
+import { Button, Wrapper } from '../../../src/component';
+
+class PageButton extends React.Component<any, any> {
   public render(): JSX.Element {
     const { handleLogin, disabled, content, time } = this.props;
     return (
-      <div className='hd'>
-        <Flex>
-          <Button className='btn-black'>测试</Button>
-          <Button disabled={true} >禁用</Button>
-        </Flex>
-        <Button className='btn-primary'>默认按钮(primary)</Button>
-        <Button className='btn-orange'>默认按钮(orange)</Button>
-        <Button className='btn-black-border'>默认按钮(defalut)</Button>
-        <Flex>
-          <Button className='btn-syan-border'>默认按钮(waring)</Button>
-          <Button className='btn-primary-border'>默认按钮(danger)</Button>
-        </Flex>
-        <Vcode className='btn-vcode btn-syan' onClick={handleLogin} disabled={disabled} >{content}</Vcode>
+      <div>
+        <div className="hd">
+          <h1>Button</h1>
+          <p>按钮</p>
+        </div>
+        <Wrapper size="lg">
+          <Button className="btn-primary">主色</Button>
+          <Button className="btn-primary" disabled>主色禁用</Button>
+          <Button>默认</Button>
+          <Button className="btn-blue btn-round">圆角蓝色</Button>
+          <Button className="btn-blue btn-round" disabled>圆角蓝色禁用</Button>
+          <Button disabled>默认禁用</Button>
+          <Button className="btn-primary btn-outline">线框</Button>
+          <Button className="btn-primary btn-outline" disabled>线框禁用</Button>
+          <br />
+          <Button className="btn-primary btn-sm">小按钮</Button>
+          <Button className="btn-green btn-outline btn-sm">小按钮</Button>
+          <br/><br/>
+        </Wrapper>
       </div>
     );
   }
 }
 
 const mapStateToProps = (state: any) => ({
-  disabled: state.PageButton.disabled,
-  content: state.PageButton.content,
-  time: state.PageButton.time,
-  handleLogin: state.PageButton.handleLogin,
-  countFun: state.PageButton.countFun,
-
 });
 
 const mapDispatchToProps = (dispatch: any) => ({
-  handleLogin: (time: number) => dispatch(loginAction())
-})
-
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(PageButton);

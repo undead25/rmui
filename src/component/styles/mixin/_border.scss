@@ -1,0 +1,34 @@
+@mixin retina-border($color, $direction) {
+  content: " ";
+  position: absolute;
+  background-color: $color;
+  // border-#{$direction}: 1PX solid $color;
+
+  @if $direction == top or $direction == bottom {
+    height: 1PX;
+    left: 0;
+    right: 0;
+    transform: scaleY(0.5);
+
+    @if $direction == top {
+      top: 0;
+      transform-origin: 0 0;
+    } @else {
+      transform-origin: 0 100%;
+      bottom: 1PX;
+    }
+  } @else {
+    width: 1PX;
+    top: 0;
+    bottom: 0;
+    transform: scaleX(0.5);
+
+    @if $direction == left {
+      left: 0;
+      transform-origin: 0 0;
+    } @else {
+      right: 0;
+      transform-origin: 100% 0;
+    }
+  }
+}

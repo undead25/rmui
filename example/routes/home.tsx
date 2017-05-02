@@ -10,6 +10,9 @@ export function Layout(props: any) {
           <Link to='/button'>Button</Link>
         </li>
         <li>
+          <Link to='/list'>List</Link>
+        </li>
+        <li>
           <Link to='/cards'>Cards</Link>
         </li>
         <li>
