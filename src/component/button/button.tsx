@@ -4,9 +4,13 @@ import PropTypes from 'prop-types';
 import './button.scss';
 
 export default function Button(props: MUI.ButtonProps) {
-  const { children, type, className, onClick, style, ...others } = props;
+  const { prefix = 'mui', color, round, outline, size, children, type, className, onClick, style, ...others } = props;
   const cls = classNames({
-    'btn': true,
+    [`${prefix}-btn`]: true,
+    [`${prefix}-btn-${color}`]: color,
+    [`${prefix}-btn-round`]: round,
+    [`${prefix}-btn-outline`]: outline,
+    [`${prefix}-btn-sm`]: size === 'sm',
     [className as string]: className
   });
 

@@ -13,34 +13,7 @@ export function Layout(props: any) {
           <Link to='/list'>List</Link>
         </li>
         <li>
-          <Link to='/cards'>Cards</Link>
-        </li>
-        <li>
-          <Link to='/cells'>Cells</Link>
-        </li>
-        <li>
-          <Link to='/dialog'>Dialog</Link>
-        </li>
-        <li>
-          <Link to='/flex'>Flex</Link>
-        </li>
-        <li>
-          <Link to='/icon'>Icon</Link>
-        </li>
-        <li>
-          <Link to='/footer'>Footer</Link>
-        </li>
-        <li>
-          <Link to='/page'>Wrap</Link>
-        </li>
-        <li>
-          <Link to='/wall'>Wall</Link>
-        </li>
-        <li>
-          <Link to='/space'>Space</Link>
-        </li>
-        <li>
-          <Link to='/toast'>Toast</Link>
+          <Link to='/input'>Input</Link>
         </li>
       </ul>
     </div>

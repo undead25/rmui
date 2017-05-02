@@ -5,7 +5,6 @@ import { Button, Wrapper } from '../../../src/component';
 
 class PageButton extends React.Component<any, any> {
   public render(): JSX.Element {
-    const { handleLogin, disabled, content, time } = this.props;
     return (
       <div>
         <div className="hd">
@@ -13,17 +12,17 @@ class PageButton extends React.Component<any, any> {
           <p>按钮</p>
         </div>
         <Wrapper size="lg">
-          <Button className="btn-primary">主色</Button>
-          <Button className="btn-primary" disabled>主色禁用</Button>
+          <Button color="primary">主色</Button>
+          <Button color="primary" disabled>主色禁用</Button>
           <Button>默认</Button>
-          <Button className="btn-blue btn-round">圆角蓝色</Button>
-          <Button className="btn-blue btn-round" disabled>圆角蓝色禁用</Button>
           <Button disabled>默认禁用</Button>
-          <Button className="btn-primary btn-outline">线框</Button>
-          <Button className="btn-primary btn-outline" disabled>线框禁用</Button>
+          <Button color="blue" round>圆角蓝色</Button>
+          <Button color="blue" round disabled>圆角蓝色禁用</Button>
+          <Button color="green" outline>线框</Button>
+          <Button color="green" outline disabled>线框禁用</Button>
           <br />
-          <Button className="btn-primary btn-sm">小按钮</Button>
-          <Button className="btn-green btn-outline btn-sm">小按钮</Button>
+          <Button color="cyan" size="sm">小按钮</Button>
+          <Button color="green" size="sm" outline>小按钮</Button>
           <br/><br/>
         </Wrapper>
       </div>

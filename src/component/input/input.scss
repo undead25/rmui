@@ -1,0 +1,41 @@
+@import '../styles/variable';
+@import '../styles/mixin';
+
+.#{$ui}-input {
+  padding-right: $list-item-h-gap;
+
+  .#{$ui}-input-label {
+    margin-right: $input-label-h-gap;
+    text-align: left;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+
+  &:not(:last-child):after {
+    @include retina-border($color-border, bottom);
+    left: $list-item-h-gap;
+  }
+
+  @each $width in map-keys($input-label-width-map) {
+    .#{$ui}-input-label-#{$width} {
+      width: map-get($input-label-width-map, $width);
+    }
+  }
+
+  .#{$ui}-input-container {
+    display: flex;
+    flex: 1;
+    align-items: center;
+  }
+
+  input {
+    border: 0;
+    width: 100%;
+    padding: 0;
+    background-color: transparent;
+    -webkit-appearance: none;
+    font-size: $input-font-size;
+    height: $input-height;
+    line-height: $input-height;
+  }
+}

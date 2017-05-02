@@ -1,11 +1,10 @@
 ﻿@import '../styles/variable';
 
-.btn {
+.#{$ui}-btn {
   position: relative;
   display: block;
-  overflow: hidden;
+  font-family: inherit;
  
-  box-sizing: border-box;
   width: 100%;
   height: $btn-height;
   margin: 0 auto;
@@ -39,11 +38,12 @@
     color: $btn-active-color;
   }
 
-  + .btn {
+  + .#{$ui}-btn {
     margin-top: 16px;
   }
 
-  &.btn-outline {
+  // 线框按钮
+  &.#{$ui}-btn-outline {
     background-color: transparent;
     
     &:active {
@@ -57,7 +57,7 @@
     }
   }
 
-  &.btn-sm {
+  &.#{$ui}-btn-sm {
     display: inline-block;
     font-size: $btn-sm-font-size;
     height: $btn-sm-height;
@@ -65,15 +65,16 @@
     width: auto;
   }
 
-  &.btn-round {
+  // 圆角按钮
+  &.#{$ui}-btn-round {
     border-radius: $btn-round-radius;
   }
 }
 
-
 @each $color in map-keys($colorful) {
-  .btn-#{$color} {
+  .#{$ui}-btn-#{$color} {
     color: #fff;
+    border-color: map-get($colorful, $color);
     background-color: map-get($colorful, $color);
 
     &[disabled] {
@@ -88,7 +89,7 @@
   }
 
   // 多色线框
-  .btn-#{$color}.btn-outline {
+  .#{$ui}-btn-#{$color}.#{$ui}-btn-outline {
     border-color: map-get($colorful, $color);
     color: map-get($colorful, $color);
 
@@ -96,17 +97,6 @@
       color: rgba(map-get($colorful, $color), .6);
       background-color: transparent;
       border-color: rgba(map-get($colorful, $color), .6);
-    }
-  }
-
-  .btn-#{$color}-border {
-    color: map-get($colorful, $color);
-    &:after {
-      border: 1px solid map-get($colorful, $color);
-    }
-    &:not([disabled]):active {
-      color: #fff;
-      background-color: darken(map-get($colorful, $color), 5%);
     }
   }
 }
