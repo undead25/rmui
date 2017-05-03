@@ -4,22 +4,39 @@ export = MUI;
 export as namespace MUI;
 declare namespace MUI {
   interface Element {
+    /** 样式名称 */
     className?: string;
+    /** 子 DOM 元素*/
     children?: ReactChildren;
+    /** style 属性 */
     style?: React.CSSProperties;
+    /** 样式前缀，避免样式冲突 */
     prefix?: string;
   }
 
   interface InputElement extends Element {
+    /** Change 事件 */
     onChange?: Function;
+    /** Focus 事件 */
     onFocus?: Function;
+    /** Blur 事件 */
     onBlur?: Function;
+    /** 最大自动长度 */
     maxLength?: number;
+    /** 自动聚焦 */
     autoFocus?: boolean;
+    /** 占位符 */
     placeholder?: string;
+    /** 是否禁用 */
     disabled?: boolean;
+    /** 是否只读 */
+    readOnly?: boolean;
+    /** 受控值 */
     value?: string;
+    /** 非受控值 */
     defaultValue?: string;
+    /** 名称 */
+    name?: string;
   }
 
   interface WrapperProps extends Element {
@@ -51,6 +68,10 @@ declare namespace MUI {
     /** 文字数量，自动计算宽度 */
     labelWidth?: number;
     /** 文本类型 */
-    type?: 'text' | 'number' | 'phone' | 'password' | 'bankcard' | 'idcard';
+    type?: 'text' | 'number' | 'phone' | 'password' | 'bankcard' | 'date' | 'datetime-local';
+    /** 是否带清除按钮 */
+    clear?: boolean;
+    /** 后缀 */
+    suffix?: string;
   }
 }

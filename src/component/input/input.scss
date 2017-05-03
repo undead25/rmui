@@ -4,6 +4,7 @@
 .#{$ui}-input {
   padding-right: $list-item-h-gap;
 
+  // 标签
   .#{$ui}-input-label {
     margin-right: $input-label-h-gap;
     text-align: left;
@@ -11,23 +12,27 @@
     overflow: hidden;
   }
 
+  // 底部 hairline
   &:not(:last-child):after {
     @include retina-border($color-border, bottom);
     left: $list-item-h-gap;
   }
 
+  // 动态标签宽度
   @each $width in map-keys($input-label-width-map) {
     .#{$ui}-input-label-#{$width} {
       width: map-get($input-label-width-map, $width);
     }
   }
 
+  // 文本框容器
   .#{$ui}-input-container {
     display: flex;
     flex: 1;
     align-items: center;
   }
 
+  // 文本框
   input {
     border: 0;
     width: 100%;
@@ -37,5 +42,31 @@
     font-size: $input-font-size;
     height: $input-height;
     line-height: $input-height;
+
+    &[disabled] {
+      color: $input-disabled-color;
+      background-color: #fff;
+    }
+  }
+
+  // 清除按钮
+  .#{$ui}-input-clear {
+    width: $input-clear-size;
+    height: $input-clear-size;
+    background: url('../styles/icon/clear.svg') no-repeat center center;
+  }
+
+  // 后缀
+  .#{$ui}-input-suffix {
+    color: $list-value-color;
+    font-size: $input-suffix-font-size;
+  }
+
+}
+// 禁用
+.#{$ui}-input-disabled {
+
+  .#{$ui}-input-label {
+    color: $input-disabled-color;
   }
 }
