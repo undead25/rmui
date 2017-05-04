@@ -6,7 +6,7 @@ import { List } from '../../../src/component';
 
 class PageList extends React.Component<any, any> {
   public render(): JSX.Element {
-    const Item = List.Item;
+    const Cell = List.Cell;
     return (
       <div>
         <div className="hd">
@@ -15,20 +15,20 @@ class PageList extends React.Component<any, any> {
         </div>
         <div className="bd">
           <List renderHeader={() => '基本'}>
-            <Item>标题</Item>
-            <Item value="描述文字">标题</Item>
+            <Cell>标题</Cell>
+            <Cell value="描述文字">标题</Cell>
           </List>
           <List renderHeader={() => '箭头'}>
-            <Link to="/"><Item arrow>标题</Item></Link>
-            <Item arrow="up">箭头上</Item>
-            <Item arrow="down">箭头下</Item>
+            <Link to="/"><Cell arrow>标题</Cell></Link>
+            <Cell arrow="up">箭头上</Cell>
+            <Cell arrow="down">箭头下</Cell>
           </List>
           <List renderHeader={() => '图标'}>
-            <Item thumb={require('../../assets/paid.svg')} arrow>购物车</Item>
-            <Item thumb={require('../../assets/info.svg')} arrow>信息</Item>
+            <Cell thumb={require('../../assets/paid.svg')} arrow>购物车</Cell>
+            <Cell thumb={require('../../assets/info.svg')} arrow>信息</Cell>
           </List>
           <List renderHeader={() => '副标题'}>
-            <Item value="描述文字" arrow subtitle="副标题">标题</Item>
+            <Cell value="描述文字" arrow subtitle="副标题">标题</Cell>
           </List>
         </div>
       </div>

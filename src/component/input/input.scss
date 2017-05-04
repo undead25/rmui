@@ -1,11 +1,13 @@
 @import '../styles/variable';
 @import '../styles/mixin';
 
-.#{$ui}-input {
+$prefix: #{$ui}-input;
+
+.#{$prefix} {
   padding-right: $list-item-h-gap;
 
   // 标签
-  .#{$ui}-input-label {
+  .#{$prefix}-label {
     margin-right: $input-label-h-gap;
     text-align: left;
     white-space: nowrap;
@@ -20,13 +22,13 @@
 
   // 动态标签宽度
   @each $width in map-keys($input-label-width-map) {
-    .#{$ui}-input-label-#{$width} {
+    .#{$prefix}-label-#{$width} {
       width: map-get($input-label-width-map, $width);
     }
   }
 
   // 文本框容器
-  .#{$ui}-input-container {
+  .#{$prefix}-container {
     display: flex;
     flex: 1;
     align-items: center;
@@ -50,23 +52,23 @@
   }
 
   // 清除按钮
-  .#{$ui}-input-clear {
+  .#{$prefix}-clear {
     width: $input-clear-size;
     height: $input-clear-size;
     background: url('../styles/icon/clear.svg') no-repeat center center;
   }
 
   // 后缀
-  .#{$ui}-input-suffix {
+  .#{$prefix}-suffix {
     color: $list-value-color;
     font-size: $input-suffix-font-size;
   }
 
 }
 // 禁用
-.#{$ui}-input-disabled {
+.#{$prefix}-disabled {
 
-  .#{$ui}-input-label {
+  .#{$prefix}-label {
     color: $input-disabled-color;
   }
 }

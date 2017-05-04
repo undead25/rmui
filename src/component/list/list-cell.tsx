@@ -5,20 +5,20 @@ import PropTypes from 'prop-types';
 import './list.scss';
 
 export default function ListItem(props: MUI.ListItemProps) {
-  const { className, children, value, arrow, thumb, subtitle } = props;
+  const { className, children, value, arrow, thumb, subtitle, prefix= 'mui-list-cell' } = props;
   const cls = classNames({
-    'list-item': true,
-    'list-item-access': arrow,
+    [`${prefix}`]: true,
+    [`${prefix}-access`]: arrow,
     [className as string]: className
   });
 
   const contentCls = classNames({
-    'list-item-content': true,
-    'list-item-multiline': subtitle
+    [`${prefix}-content`]: true,
+    [`${prefix}-multiline`]: subtitle
   });
 
   const arrowCls = classNames({
-    'list-item-arrow': true,
+    [`${prefix}-arrow`]: true,
     'list-arrow-down': arrow === 'down',
     'list-arrow-up': arrow === 'up'
   });
@@ -30,16 +30,16 @@ export default function ListItem(props: MUI.ListItemProps) {
    */
   return (
     <div className={cls}>
-      {thumb && <div className="list-item-thumb"><img src={thumb as string} /></div>}
+      {thumb && <div className={`${prefix}-thumb`}><img src={thumb as string} /></div>}
       <div className={contentCls}>
         {
           children &&
-          <div className="list-item-head">
+          <div className={`${prefix}-head`}>
             {children}
-            {subtitle && <div className="list-item-subtitle">{subtitle}</div>}
+            {subtitle && <div className={`${prefix}-subtitle`}>{subtitle}</div>}
           </div>
         }
-        {value && <div className="list-item-value">{value}</div>}
+        {value && <div className={`${prefix}-value`}>{value}</div>}
         {arrow && <div className={arrowCls}></div>}
       </div>
     </div>

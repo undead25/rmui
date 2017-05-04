@@ -27,7 +27,7 @@ export default class Input extends React.Component<MUI.InputProps, any> {
     } = this.props;
 
     const cls = classNames({
-      'list-item': true,
+      'mui-list-cell': true,
       [`${prefix}`]: true,
       [`${prefix}-disabled`]: disabled
     });

@@ -1,0 +1,27 @@
+@import '../styles/variable';
+@import '../styles/mixin';
+
+$prefix: #{$ui}-checkbox;
+
+.#{$prefix} {
+
+  // 原生 input
+  input {
+    opacity: 0;
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+  }
+
+  .#{$prefix}-unchecked {
+    display: block;
+    background: url('../styles/icon/unchecked.svg') no-repeat center center;
+    background-size: 48px 48px;
+    width: 48px;
+    height: 48px;
+  }
+}

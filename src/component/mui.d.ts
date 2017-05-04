@@ -1,4 +1,4 @@
-﻿import React, { ReactChildren } from 'react';
+﻿import React, { ReactChildren, ReactNode } from 'react';
 
 export = MUI;
 export as namespace MUI;
@@ -60,7 +60,7 @@ declare namespace MUI {
   interface ListItemProps extends ListProps {
     value?: string;
     arrow?: boolean | 'down' | 'up';
-    thumb?: string;
+    thumb?: ReactNode | null ;
     subtitle?: string;
   }
 
@@ -73,5 +73,9 @@ declare namespace MUI {
     clear?: boolean;
     /** 后缀 */
     suffix?: string;
+  }
+
+  interface CheckboxProps extends InputElement {
+
   }
 }

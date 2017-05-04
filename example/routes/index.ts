@@ -3,6 +3,7 @@ import Layout from './layout';
 import PageButton from './button';
 import PageList from './list';
 import PageInput from './input';
+import PageCheckbox from './checkbox';
 
 export const Routes = (store: any) => ({
   path: '/',
@@ -13,7 +14,8 @@ export const Routes = (store: any) => ({
   childRoutes: [
     PageButton(store),
     PageList(store),
-    PageInput(store)
+    PageInput(store),
+    PageCheckbox(store)
   ]
 });
 

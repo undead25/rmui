@@ -1,8 +1,10 @@
 @import '../styles/variable';
 @import '../styles/mixin';
 
+$prefix: #{$ui}-list;
 
-.list-header {
+// 列表标题 section header
+.#{$prefix}-header {
   box-sizing: border-box;
   padding: $list-header-padding;
   color: $list-header-color;
@@ -10,7 +12,8 @@
   font-size: $list-header-font-size;
 }
 
-.list-body {
+// 列表内容 grouped cells
+.#{$prefix}-body {
   position: relative;
   background: $list-bg;
 
@@ -23,7 +26,8 @@
   }
 }
 
-.list-item {
+// 列表行 cell
+.#{$prefix}-cell {
   position: relative;
   display: flex;
   align-items: center;
@@ -31,85 +35,103 @@
   min-height: $list-item-min-height;
   padding-left: $list-item-h-gap;
   flex: 1;
-}
 
-.list-item-access {
-  text-decoration: none;
-  color: inherit;
+  // 带箭头 cell
+  &.#{$prefix}-cell-access {
+    text-decoration: none;
+    color: inherit;
 
-  &:active {
-    background-color: #ececec;
+    &:active {
+      background-color: #ececec;
+    }
+  }
+
+  // cell 内容
+  .#{$prefix}-cell-content {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    min-height: $list-item-min-height;
+    padding-right: $list-item-h-gap;
+    position: relative;
+    overflow: hidden;
+    align-self: stretch;
+
+    &:after {
+      @include retina-border($color-border, bottom);
+    }
+  }
+
+  // 箭头
+  .#{$prefix}-cell-arrow {
+    width: $list-arrow-size;
+    height: $list-arrow-size;
+    background: url('../styles/icon/arrow.svg') no-repeat center center;
+    margin-left: $list-arrow-margin-left;
+
+    // 箭头上
+    .#{$prefix}-arrow-up {
+      transform: rotate(-90deg);
+    }
+
+    // 箭头下
+    .#{$prefix}-arrow-down {
+      transform: rotate(90deg);
+    }
+  }
+
+  // last cell 无底部 hairline, 使用 list-body 的 hairline
+  .#{$prefix}-body > .#{$prefix}-cell:last-child .#{$prefix}-cell-content:after {
+    display: none;
+  }
+
+  // a 标签同上， 用于 router <Link>
+  .#{$prefix}-body > a:last-child .#{$prefix}-cell-content:after {
+    display: none;
+  }
+
+  // cell 带图标
+  .#{$prefix}-cell-thumb {
+    margin-right: $list-item-h-gap;
+
+    // 限定图片显示尺寸
+    img {
+      width: $list-thumb-size;
+      height: $list-thumb-size;
+      vertical-align: middle;
+    }
+  }
+
+  // 多行文字 cell
+  .#{$prefix}-cell-multiline {
+    padding: $list-multiline-padding;
+  }
+
+  // cell 左侧
+  .#{$prefix}-cell-head {
+    flex: 1;
+    @include ellipsis();
+    
+    // cell 左侧副标题
+    .#{$prefix}-cell-subtitle {
+      color: $list-subtitle-color;
+      font-size: $list-subtitle-font-size;
+      margin-top: 12px;
+      line-height: 1.5;
+      @include ellipsis();
+    }
+  }
+
+  // cell 右侧 value
+  .#{$prefix}-cell-value {
+    text-align: right;
+    color: $list-value-color;
+    @include ellipsis();
   }
 }
 
-.list-item-content {
-  display: flex;
-  align-items: center;
-  flex: 1;
-  min-height: $list-item-min-height;
-  padding-right: $list-item-h-gap;
-  position: relative;
-  overflow: hidden;
-  align-self: stretch;
 
-  &:after {
-    @include retina-border($color-border, bottom);
-  }
-}
 
-.list-body > .list-item:last-child .list-item-content:after {
-  display: none;
-}
 
-.list-body > a:last-child .list-item-content:after {
-  display: none;
-}
 
-.list-item-arrow {
-  width: $list-arrow-size;
-  height: $list-arrow-size;
-  background: url('../styles/icon/arrow.svg') no-repeat center center;
-  margin-left: $list-arrow-margin-left;
 
-  &.list-arrow-up {
-    transform: rotate(-90deg);
-  }
-
-  &.list-arrow-down {
-    transform: rotate(90deg);
-  }
-}
-
-.list-item-thumb {
-  margin-right: $list-item-h-gap;
-
-  img {
-    width: $list-thumb-size;
-    height: $list-thumb-size;
-    vertical-align: middle;
-  }
-}
-
-.list-item-head {
-  flex: 1;
-  @include ellipsis();
-}
-
-// 多行内容
-.list-item-multiline {
-  padding: $list-multiline-padding;
-}
-
-.list-item-subtitle {
-  color: $list-subtitle-color;
-  font-size: $list-subtitle-font-size;
-  margin-top: 12px;
-  line-height: 1.5;
-  @include ellipsis();
-}
-
-.list-item-value {
-  text-align: right;
-  color: $list-value-color;
-  @include ellipsis();
-}

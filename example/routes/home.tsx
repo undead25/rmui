@@ -6,15 +6,10 @@ export function Layout(props: any) {
     <div>
       <h4>CF-MUI</h4>
       <ul>
-        <li>
-          <Link to='/button'>Button</Link>
-        </li>
-        <li>
-          <Link to='/list'>List</Link>
-        </li>
-        <li>
-          <Link to='/input'>Input</Link>
-        </li>
+        <li><Link to='/button'>Button</Link></li>
+        <li><Link to='/list'>List</Link></li>
+        <li><Link to='/input'>Input</Link></li>
+        <li><Link to='/checkbox'>Checkbox</Link></li>
       </ul>
     </div>
   );
