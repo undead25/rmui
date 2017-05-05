@@ -1,0 +1,11 @@
+@import '../styles/variable';
+@import '../styles/mixin';
+
+$prefix: #{$ui}-radio;
+
+.#{$prefix} {
+  &:active {
+    background-color: $list-item-active-bg;
+  }
+  
+}

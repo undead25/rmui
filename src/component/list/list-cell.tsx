@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 import './list.scss';
 
-export default function ListItem(props: MUI.ListItemProps) {
+export default function Cell(props: MUI.ListItemProps) {
   const { className, children, value, arrow, thumb, subtitle, prefix= 'mui-list-cell' } = props;
   const cls = classNames({
     [`${prefix}`]: true,
@@ -30,7 +30,9 @@ export default function ListItem(props: MUI.ListItemProps) {
    */
   return (
     <div className={cls}>
-      {thumb && <div className={`${prefix}-thumb`}><img src={thumb as string} /></div>}
+      {thumb && <div className={`${prefix}-thumb`}>
+        {typeof thumb === 'string' ? <img src={thumb as string} /> : thumb}
+      </div>}
       <div className={contentCls}>
         {
           children &&

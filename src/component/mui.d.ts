@@ -76,6 +76,16 @@ declare namespace MUI {
   }
 
   interface CheckboxProps extends InputElement {
+    /** 是否选中，受控 */
+    checked?: boolean;
+    /** 是否选中，非受控 */
+    defaultChecked?: boolean;
+  }
 
+  interface RadioProps extends InputElement {
+    /** 是否选中，受控 */
+    checked?: boolean;
+    /** 是否选中，非受控 */
+    defaultChecked?: boolean;
   }
 }

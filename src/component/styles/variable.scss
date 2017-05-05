@@ -2,7 +2,7 @@
 
 /* Color 颜色
    ========================================================================== */
-$color-black: #030303 !default;   
+$color-black: #030303 !default;
 $color-border: #c8c7cc !default;
 
 $color-brand: #ff5046 !default;
@@ -76,6 +76,8 @@ $list-subtitle-color: #8f8f8f !default;
 
 $list-multiline-padding: 25px 30px 25px 0 !default;
 
+$list-item-active-bg: #ececec !default;
+
 
 /* Input 表单输入
    ========================================================================== */
@@ -101,5 +103,3 @@ $input-suffix-font-size: 30px !default;
 
 /* Checkbox 复选框
    ========================================================================== */
-
-

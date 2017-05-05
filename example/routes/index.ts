@@ -4,6 +4,7 @@ import PageButton from './button';
 import PageList from './list';
 import PageInput from './input';
 import PageCheckbox from './checkbox';
+import PageRadio from './radio';
 
 export const Routes = (store: any) => ({
   path: '/',
@@ -15,7 +16,8 @@ export const Routes = (store: any) => ({
     PageButton(store),
     PageList(store),
     PageInput(store),
-    PageCheckbox(store)
+    PageCheckbox(store),
+    PageRadio(store)
   ]
 });
 

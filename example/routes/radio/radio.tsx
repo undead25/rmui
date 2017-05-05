@@ -2,16 +2,16 @@ import * as React from 'react';
 import { connect } from 'react-redux';
 
 import { List, Checkbox } from '../../../src/component';
-import { check1ChangeAction }  from './checkbox.redux';
+import { check1ChangeAction }  from './radio.redux';
 
-class PageCheckbox extends React.Component<any, any> {
+class PageRadio extends React.Component<any, any> {
   public render(): JSX.Element {
     const {check1, onCheck1Change} = this.props;
     return (
       <div>
         <div className="hd">
-          <h1>Checkbox</h1>
-          <p>复选框</p>
+          <h1>Radio</h1>
+          <p>单选框</p>
         </div>
         <div className="bd">
           <List renderHeader={() => '基本样式'}>
@@ -34,11 +34,11 @@ class PageCheckbox extends React.Component<any, any> {
 }
 
 const mapStateToProps = (state: any) => ({
-  check1: state.PageCheckbox.check1
+  check1: state.PageRadio.check1
 });
 
 const mapDispatchToProps = (dispatch: any) => ({
   onCheck1Change: (e) => dispatch(check1ChangeAction(e))
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(PageCheckbox);
+export default connect(mapStateToProps, mapDispatchToProps)(PageRadio);

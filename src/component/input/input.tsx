@@ -26,6 +26,8 @@ export default class Input extends React.Component<MUI.InputProps, any> {
       readOnly = false
     } = this.props;
 
+    let _value = 'value' in this.props ? {value} : {defaultValue};
+
     const cls = classNames({
       'mui-list-cell': true,
       [`${prefix}`]: true,
@@ -59,11 +61,10 @@ export default class Input extends React.Component<MUI.InputProps, any> {
             onChange={this._onChange}
             onBlur={this._onBlur}
             onFocus={this._onFocus}
-            value={value}
-            defaultValue={defaultValue}
             readOnly={readOnly}
             disabled={disabled}
             maxLength={maxLength}
+            {..._value}
           />
         </div>
         {clear && !readOnly && (value && value.length > 0) ?

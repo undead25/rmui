@@ -24,6 +24,16 @@ $prefix: #{$ui}-list;
   &:after {
     @include retina-border($color-border, bottom);
   }
+
+  // last cell 无底部 hairline, 使用 list-body 的 hairline
+  > .#{$prefix}-cell:last-child .#{$prefix}-cell-content:after {
+    display: none;
+  }
+
+  // a 标签同上， 用于 router <Link>
+  > a:last-child .#{$prefix}-cell-content:after {
+    display: none;
+  }
 }
 
 // 列表行 cell
@@ -42,7 +52,17 @@ $prefix: #{$ui}-list;
     color: inherit;
 
     &:active {
-      background-color: #ececec;
+      background-color: $list-item-active-bg;
+    }
+  }
+
+  &.#{$prefix}-cell-disabled {
+    &:active {
+      background-color: inherit;
+    }
+
+    .#{$prefix}-cell-content {
+      color: $input-disabled-color;
     }
   }
 
@@ -80,16 +100,6 @@ $prefix: #{$ui}-list;
     }
   }
 
-  // last cell 无底部 hairline, 使用 list-body 的 hairline
-  .#{$prefix}-body > .#{$prefix}-cell:last-child .#{$prefix}-cell-content:after {
-    display: none;
-  }
-
-  // a 标签同上， 用于 router <Link>
-  .#{$prefix}-body > a:last-child .#{$prefix}-cell-content:after {
-    display: none;
-  }
-
   // cell 带图标
   .#{$prefix}-cell-thumb {
     margin-right: $list-item-h-gap;
@@ -111,7 +121,7 @@ $prefix: #{$ui}-list;
   .#{$prefix}-cell-head {
     flex: 1;
     @include ellipsis();
-    
+
     // cell 左侧副标题
     .#{$prefix}-cell-subtitle {
       color: $list-subtitle-color;
@@ -129,9 +139,3 @@ $prefix: #{$ui}-list;
     @include ellipsis();
   }
 }
-
-
-
-
-
-

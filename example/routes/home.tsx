@@ -10,6 +10,7 @@ export function Layout(props: any) {
         <li><Link to='/list'>List</Link></li>
         <li><Link to='/input'>Input</Link></li>
         <li><Link to='/checkbox'>Checkbox</Link></li>
+        <li><Link to='/radio'>Radio</Link></li>
       </ul>
     </div>
   );

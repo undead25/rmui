@@ -4,6 +4,9 @@
 $prefix: #{$ui}-checkbox;
 
 .#{$prefix} {
+  &:active {
+    background-color: $list-item-active-bg;
+  }
 
   // 原生 input
   input {
@@ -15,11 +18,24 @@ $prefix: #{$ui}-checkbox;
     width: 100%;
     height: 100%;
     z-index: 2;
+
+    &:checked + .#{$prefix}-icon {
+      background-image: url('../styles/icon/checked.svg');
+    }
+
+    &[disabled] + .#{$prefix}-icon {
+      background-image: url('../styles/icon/unchecked-d.svg');
+    }
+    &:checked[disabled] + .#{$prefix}-icon {
+      background-image: url('../styles/icon/checked-d.svg');
+    }
   }
 
-  .#{$prefix}-unchecked {
+  .#{$prefix}-icon {
     display: block;
-    background: url('../styles/icon/unchecked.svg') no-repeat center center;
+    background-image: url('../styles/icon/unchecked.svg');
+    background-position: center center;
+    background-repeat: no-repeat;
     background-size: 48px 48px;
     width: 48px;
     height: 48px;
