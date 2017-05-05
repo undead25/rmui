@@ -2,11 +2,11 @@ import * as React from 'react';
 import { connect } from 'react-redux';
 
 import { List, Checkbox } from '../../../src/component';
-import { check1ChangeAction }  from './checkbox.redux';
+import { check1ChangeAction } from './checkbox.redux';
 
 class PageCheckbox extends React.Component<any, any> {
   public render(): JSX.Element {
-    const {check1, onCheck1Change} = this.props;
+    const { check1, onCheck1Change } = this.props;
     return (
       <div>
         <div className="hd">

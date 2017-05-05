@@ -1,6 +1,5 @@
 import * as React from 'react';
 import * as classNames from 'classnames';
-import * as ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 
 import './input.scss';

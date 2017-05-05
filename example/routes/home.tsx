@@ -11,6 +11,7 @@ export function Layout(props: any) {
         <li><Link to='/input'>Input</Link></li>
         <li><Link to='/checkbox'>Checkbox</Link></li>
         <li><Link to='/radio'>Radio</Link></li>
+        <li><Link to='/picker'>Picker</Link></li>
       </ul>
     </div>
   );

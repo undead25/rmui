@@ -12,6 +12,8 @@ declare namespace MUI {
     style?: React.CSSProperties;
     /** 样式前缀，避免样式冲突 */
     prefix?: string;
+    /** 点击事件 */
+    onClick?: Function;
   }
 
   interface InputElement extends Element {
@@ -87,5 +89,15 @@ declare namespace MUI {
     checked?: boolean;
     /** 是否选中，非受控 */
     defaultChecked?: boolean;
+  }
+
+  interface OverlayProps extends Element {
+    // 是否透明
+    transparent?: boolean;
+  }
+
+  interface PickerProps extends Element {
+    show?: boolean;
+    
   }
 }

@@ -31,7 +31,7 @@ export default function Radio(props: MUI.RadioProps) {
           type="radio"
           {..._checked}
           disabled={disabled}
-          onChange={_onChange}
+          // onChange={_onChange}
         />
         <span className={`${prefix}-icon`}></span>
       </label>}

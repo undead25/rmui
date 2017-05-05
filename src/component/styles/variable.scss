@@ -42,7 +42,7 @@ $btn-radius: 10px !default;
 $btn-border: 1PX solid rgba(0, 0, 0, .2) !default;
 
 $btn-active-bg: #dedede !default;
-$btn-active-color: rgba(0,0,0,.6) !default;
+$btn-active-color: rgba(0, 0, 0, .6) !default;
 
 $btn-disabled-bg: #f7f7f7 !default;
 $btn-disabled-color: rgba(0, 0, 0, .3) !default;
@@ -103,3 +103,13 @@ $input-suffix-font-size: 30px !default;
 
 /* Checkbox 复选框
    ========================================================================== */
+
+
+/* Overlay 遮罩层
+   ========================================================================== */
+$overlay-bg: rgba(0, 0, 0, .6) !default;
+
+/* Z-index 层级
+   ========================================================================== */
+$zindex-overlay: 1000;
+$zindex-picker: 1010;   

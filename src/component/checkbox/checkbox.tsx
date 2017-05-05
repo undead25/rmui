@@ -24,21 +24,21 @@ export default function Checkbox(props: MUI.CheckboxProps) {
   });
 
   // 受控非受控二选一
-  let _checked = 'checked' in props ? {checked} : {defaultChecked}
+  let _checked = 'checked' in props ? { checked } : { defaultChecked };
 
   const _onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (disabled) return;
     checked = e.target.checked;
     // 输出信息
-    const emitInfo:Object = {
+    const emitInfo: Object = {
       target: {
         checked: checked
       },
       preventDefault: () => e.preventDefault,
       stopPropagation: () => e.stopPropagation
-    }
+    };
     props.onChange && props.onChange(emitInfo);
-  }
+  };
 
   return (
     <Cell className={cls} thumb={

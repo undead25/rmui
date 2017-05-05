@@ -1,0 +1,12 @@
+@import '../styles/variable';
+@import '../styles/mixin';
+
+$prefix: #{$ui}-picker;
+
+.#{$prefix} {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  z-index: $zindex-picker;
+}

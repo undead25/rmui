@@ -1,6 +1,6 @@
 {
-  "name": "cf-webapp-creditcard",
-  "version": "1.0.0",
+  "name": "cf-mui",
+  "version": "1.0.1",
   "description": "cf react mobile component",
   "private": true,
   "scripts": {
