@@ -1,10 +1,10 @@
 import * as React from 'react';
 import * as classNames from 'classnames';
 
-import './overlay.scss';
+import './mask.scss';
 
-export default function Overlay(props: MUI.OverlayProps) {
-  const {transparent, className, prefix = 'mui-overlay'} = props;
+export default function Mask(props: MUI.MaskProps) {
+  const { transparent, className, prefix = 'mui-mask', ...others } = props;
 
   const cls = classNames({
     [`${prefix}`]: true,
@@ -13,6 +13,6 @@ export default function Overlay(props: MUI.OverlayProps) {
   });
 
   return (
-    <div className={cls}></div>
+    <div className={cls} {...others}></div>
   );
 }

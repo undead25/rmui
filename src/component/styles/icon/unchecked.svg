@@ -1,1 +1,7 @@
-<svg viewBox="679 8 46 46" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><defs><path d="M46 23.28C46 10.3 35.7 0 22.72 0 10.3 0 0 10.3 0 23.28 0 35.7 10.3 46 22.72 46 35.7 46 46 35.7 46 23.28z" id="a"/><mask id="b" x="0" y="0" width="46" height="46" fill="#fff"><use xlink:href="#a"/></mask></defs><use stroke="#C9C9C9" mask="url(#b)" stroke-width="4" fill="#FFF" xlink:href="#a" fill-rule="evenodd" transform="translate(679 8)"/></svg>
+
+<svg width="23px" height="22px" viewBox="12 12 23 22" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 39.1 (31720) - http://www.bohemiancoding.com/sketch -->
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <path d="M23,34 C29.0751322,34 34,29.0751322 34,23 C34,16.9248678 29.0751322,12 23,12 C16.9248678,12 12,16.9248678 12,23 C12,29.0751322 16.9248678,34 23,34 Z M23,33 C28.5228475,33 33,28.5228475 33,23 C33,17.4771525 28.5228475,13 23,13 C17.4771525,13 13,17.4771525 13,23 C13,28.5228475 17.4771525,33 23,33 Z" id="Circle" stroke="none" fill="#C7C7CD" fill-rule="evenodd"></path>
+</svg>

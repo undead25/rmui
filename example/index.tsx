@@ -1,11 +1,16 @@
 ﻿import * as React from 'react';
 import * as ReactDOM from 'react-dom';
+import * as Perf from 'react-addons-perf';
 import { hashHistory, Router } from 'react-router';
 import { Provider } from 'react-redux';
 
 import configureStore from './store/configureStore';
 import '../src/component/styles/index.scss';
 import './example.scss';
+
+if (process.env.NODE_ENV === 'development') {
+  window['Perf'] = Perf;
+}
 
 class App extends React.Component<any, any> {
   public shouldComponentUpdate(): boolean {

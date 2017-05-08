@@ -9,4 +9,94 @@ $prefix: #{$ui}-picker;
   bottom: 0;
   width: 100%;
   z-index: $zindex-picker;
+  transform: translateY(100%);
+  transition: transform .3s;
+
+  .#{$prefix}-header {
+    display: flex;
+    background-color: $picker-header-bg;
+    position: relative;
+    justify-content: space-between;
+    align-items: center;
+
+    .#{$prefix}-header-item {
+      font-size: $picker-header-font-size;
+      padding: $picker-header-item-padding;
+      color: map-get($colorful, blue);
+    }
+
+    &:after {
+      @include retina-border($color-border, bottom);
+    }
+  }
+
+  .#{$prefix}-body {
+    height: $picker-body-height;
+    background-color: #fff;
+    display: flex;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .#{$prefix}-item {
+    flex: 1;
+    position: relative;
+    height: 100%;
+  }
+
+  .#{$prefix}-col-mask {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 3;
+    background: linear-gradient(180deg,hsla(0,0%,100%,.95),hsla(0,0%,100%,.6)),linear-gradient(0deg,hsla(0,0%,100%,.95),hsla(0,0%,100%,.6));
+    background-position: top, bottom;
+    background-size: 100% 204px;
+    background-repeat: no-repeat;
+  }
+
+  .#{$prefix}-col-indicator {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    z-index: 3;
+    height: 68px;
+    top: 204px;
+
+    &:before {
+      @include retina-border($color-border, top);
+    }
+
+    &:after {
+      @include retina-border($color-border, bottom);
+    }
+  }
+
+  .#{$prefix}-col-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+  }
+
+  .#{$prefix}-col-item {
+    font-size: 32px;
+    height: 68px;
+    line-height: 68px;
+    text-align: center;
+    touch-action: manipulation;
+    @include ellipsis;
+
+    &.#{$prefix}-col-item-disabled {
+      color: $input-disabled-color;
+    }
+  }
 }
+
+// 动画
+.portal-active .#{$prefix} {
+  transform: translateY(0);
+}
+

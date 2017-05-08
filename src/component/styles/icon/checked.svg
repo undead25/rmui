@@ -1,1 +1,8 @@
-<svg viewBox="745 8 46 46" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><path d="M791 31.28C791 18.3 780.7 8 767.72 8 755.3 8 745 18.3 745 31.28 745 43.7 755.3 54 767.72 54 780.7 54 791 43.7 791 31.28z" fill="#09BB07"/><path d="M756.3 31.95c-.37-.4-.4-1.08-.1-1.52l.17-.2c.33-.45.95-.54 1.4-.2l5 3.82c.45.33 1.14.33 1.57-.03l13.97-11.58c.44-.35 1.1-.3 1.5.07l-.1-.08c.4.4.4 1.02 0 1.4l-15.4 15.1c-.4.4-1.04.38-1.42 0l-6.57-6.77z" fill="#FFF"/></g></svg>
+
+<svg width="23px" height="22px" viewBox="12 12 23 22" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <defs></defs>
+    <g id="Float" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(12.000000, 12.000000)">
+        <ellipse id="Circle" fill="#0076FF" cx="11" cy="11" rx="11" ry="11"></ellipse>
+        <polyline id="Check" stroke="#FFFFFF" points="4.5 11.5 8 15 16 7"></polyline>
+    </g>
+</svg>

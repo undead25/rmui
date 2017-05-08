@@ -79,7 +79,7 @@
 
     &[disabled] {
       color: #fff;
-      background-color: lighten(map-get($colorful, $color), 18%);
+      background-color: rgba(map-get($colorful, $color), .3);
     }
 
     &:not([disabled]):active {

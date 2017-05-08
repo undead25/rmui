@@ -9,7 +9,7 @@ const configureStore = (initialState: any = {}) => {
   const { hot } = module as any;
   const environment: any = window || this;
 
-  const store:any = createStore(
+  const store: any = createStore(
     makeRootReducer(),
     initialState,
     compose(
@@ -19,8 +19,8 @@ const configureStore = (initialState: any = {}) => {
         environment.__REDUX_DEVTOOLS_EXTENSION__() :
         f => f
     )
-  )
-  store.asyncReducers = {}
+  );
+  store.asyncReducers = {};
   store.unsubscribeHistory = browserHistory.listen(updateLocation(store));
 
   // 支持webpack reducer 热替换
@@ -28,10 +28,10 @@ const configureStore = (initialState: any = {}) => {
     hot.accept('./reducers', () => {
       const reducers = require('./reducers').default;
       store.replaceReducer(reducers(store.asyncReducers));
-    })
+    });
   }
 
   return store;
-}
+};
 
 export default configureStore;

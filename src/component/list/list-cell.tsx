@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import './list.scss';
 
 export default function Cell(props: MUI.ListItemProps) {
-  const { className, children, value, arrow, thumb, subtitle, prefix= 'mui-list-cell' } = props;
+  const { className, children, value, arrow, thumb, subtitle, prefix= 'mui-list-cell', onClick } = props;
   const cls = classNames({
     [`${prefix}`]: true,
     [`${prefix}-access`]: arrow,
@@ -29,7 +29,7 @@ export default function Cell(props: MUI.ListItemProps) {
    * 2. 丰富多行配置
    */
   return (
-    <div className={cls}>
+    <div className={cls} onClick={onClick}>
       {thumb && <div className={`${prefix}-thumb`}>
         {typeof thumb === 'string' ? <img src={thumb as string} /> : thumb}
       </div>}
@@ -41,7 +41,7 @@ export default function Cell(props: MUI.ListItemProps) {
             {subtitle && <div className={`${prefix}-subtitle`}>{subtitle}</div>}
           </div>
         }
-        {value && <div className={`${prefix}-value`}>{value}</div>}
+        {value && <div className={`${prefix}-value`}>{typeof value === 'function' ? value() : value}</div>}
         {arrow && <div className={arrowCls}></div>}
       </div>
     </div>

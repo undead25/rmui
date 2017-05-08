@@ -1,19 +1,26 @@
 @import '../styles/variable';
 @import '../styles/mixin';
 
-$prefix: #{$ui}-overlay;
+$prefix: #{$ui}-mask;
 
 .#{$prefix} {
-  background-color: $overlay-bg;
+  background-color: $mask-bg;
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  z-index: $zindex-overlay;
+  z-index: $zindex-mask;
+  opacity: 0;
+  transition: opacity .3s ease-in;
 
   // 透明遮罩
   &.transparent {
     background-color: transparent;
   }
+}
+
+// 动画
+.portal-active .#{$prefix} {
+  opacity: 1;
 }

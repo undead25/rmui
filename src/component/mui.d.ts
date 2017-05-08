@@ -1,4 +1,4 @@
-﻿import React, { ReactChildren, ReactNode } from 'react';
+﻿import React, { ReactNode } from 'react';
 
 export = MUI;
 export as namespace MUI;
@@ -7,13 +7,21 @@ declare namespace MUI {
     /** 样式名称 */
     className?: string;
     /** 子 DOM 元素*/
-    children?: ReactChildren;
+    children?: any;
     /** style 属性 */
     style?: React.CSSProperties;
     /** 样式前缀，避免样式冲突 */
     prefix?: string;
     /** 点击事件 */
-    onClick?: Function;
+    onClick?: (e: React.MouseEvent<Element>) => any;
+  }
+
+  interface PortalProps extends Element {
+    isOpen?: boolean;
+    portalID?: string;
+    // onUpdate?: () => any;
+    // beforeRemove?: (node: Element | Node | null, removePortal: () => any) => any;
+    // afterRemoved?: () => any;
   }
 
   interface InputElement extends Element {
@@ -48,7 +56,6 @@ declare namespace MUI {
   interface ButtonProps extends Element {
     type?: string;
     disabled?: boolean;
-    onClick?: (e: any) => any;
     color?: string;
     round?: boolean;
     outline?: boolean;
@@ -60,9 +67,9 @@ declare namespace MUI {
   }
 
   interface ListItemProps extends ListProps {
-    value?: string;
+    value?: string | Function;
     arrow?: boolean | 'down' | 'up';
-    thumb?: ReactNode | null ;
+    thumb?: ReactNode | null;
     subtitle?: string;
   }
 
@@ -91,13 +98,18 @@ declare namespace MUI {
     defaultChecked?: boolean;
   }
 
-  interface OverlayProps extends Element {
+  interface MaskProps extends Element {
     // 是否透明
     transparent?: boolean;
   }
 
   interface PickerProps extends Element {
     show?: boolean;
-    
+    items: Array<any>;
+    defaultIndex?: number;
+    /** 选中值, 对应items数据源的相应级层value。例：[value1, value2, value3] */
+    selected?: Array<any>;
+    onCancel?: () => any;
+    onConfirm?: (selected: Array<any>) => any;
   }
 }

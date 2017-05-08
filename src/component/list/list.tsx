@@ -8,8 +8,12 @@ import './list.scss';
 export default class List extends React.Component<MUI.ListProps, any> {
   static Cell = Cell;
 
-  public render():JSX.Element {
-    const { className, children, style, renderHeader, prefix='mui-list' } = this.props;
+  // shouldComponentUpdate() {
+  //   return false;
+  // }
+
+  public render(): JSX.Element {
+    const { className, children, style, renderHeader, prefix = 'mui-list' } = this.props;
     const cls = classNames({
       [`${prefix}`]: true,
       [className as string]: className
