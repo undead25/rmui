@@ -106,10 +106,27 @@ declare namespace MUI {
   interface PickerProps extends Element {
     show?: boolean;
     items: Array<any>;
-    defaultIndex?: number;
+    columns?: number;
     /** 选中值, 对应items数据源的相应级层value。例：[value1, value2, value3] */
+    labelCancel?: string;
     selected?: Array<any>;
     onCancel?: () => any;
+    labelConfirm?: string;
+    multiple?: boolean;
     onConfirm?: (selected: Array<any>) => any;
+  }
+
+  interface PickerItemProps extends Element {
+    defaultIndex?: number;
+    items: Array<any>;
+    mapKeys?: any;
+    onChange?: (selected: Array<any>, index: number) => any;
+  }
+
+  interface PickerCascadeProps extends Element {
+    show?: boolean;
+    items?: Array<any>;
+    selected?: Array<any>;
+    dataMap?: any;
   }
 }
