@@ -1,13 +1,13 @@
 {
   "compilerOptions": {
     "sourceMap": true,
-    "strictNullChecks": true,
-    "noUnusedParameters": false,
+    "strictNullChecks": false,
     "noUnusedLocals": false,
     "allowSyntheticDefaultImports": true,
     "module": "commonjs",
     "moduleResolution": "node",
     "target": "es6",
+    "allowJs": true,
     "jsx": "preserve"
   },
   "lib": [

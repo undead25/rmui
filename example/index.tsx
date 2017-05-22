@@ -1,38 +1,31 @@
 ﻿import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import * as Perf from 'react-addons-perf';
-import { hashHistory, Router } from 'react-router';
-import { Provider } from 'react-redux';
+// import * as Perf from 'react-addons-perf';
+import { AppContainer } from 'react-hot-loader';
 
 import configureStore from './store/configureStore';
-import '../src/component/styles/index.scss';
-import './example.scss';
+import App from './app';
+// if (process.env.NODE_ENV === 'development') {
+//   window['Perf'] = Perf;
+// }
 
-if (process.env.NODE_ENV === 'development') {
-  window['Perf'] = Perf;
-}
-
-class App extends React.Component<any, any> {
-  public shouldComponentUpdate(): boolean {
-    return false;
-  }
-
-  public render(): JSX.Element {
-    const { routes, store } = this.props;
-
-    return (
-      <Provider store={store}>
-        <Router history={hashHistory} children={routes} />
-      </Provider>
-    );
-  }
-}
 
 const store = configureStore();
 const rootElement = document.getElementById('app');
 const routes = require('./routes/index').default(store);
 
-ReactDOM.render(
-  <App store={store} routes={routes} />,
-  rootElement
-);
+const render = Component => {
+  ReactDOM.render(
+    <AppContainer>
+      <Component store={store} routes={routes}/>
+    </AppContainer>,
+    rootElement
+  );
+}
+
+render(App);
+
+const { hot } = module as any;
+if (hot) {
+  hot.accept('./app', () => { render(App); });
+}

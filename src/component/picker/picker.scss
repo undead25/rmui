@@ -1,5 +1,6 @@
 @import '../styles/variable';
 @import '../styles/mixin';
+@import '../styles/animate.scss';
 
 $prefix: #{$ui}-picker;
 
@@ -9,8 +10,6 @@ $prefix: #{$ui}-picker;
   bottom: 0;
   width: 100%;
   z-index: $zindex-picker;
-  transform: translateY(100%);
-  transition: transform .3s;
 
   .#{$prefix}-header {
     display: flex;
@@ -51,7 +50,7 @@ $prefix: #{$ui}-picker;
     bottom: 0;
     right: 0;
     z-index: 3;
-    background: linear-gradient(180deg,hsla(0,0%,100%,.95),hsla(0,0%,100%,.6)),linear-gradient(0deg,hsla(0,0%,100%,.95),hsla(0,0%,100%,.6));
+    background: linear-gradient(180deg, hsla(0,0%,100%,.95),hsla(0,0%,100%,.6)),linear-gradient(0deg,hsla(0,0%,100%,.95),hsla(0,0%,100%,.6));
     background-position: top, bottom;
     background-size: 100% 204px;
     background-repeat: no-repeat;
@@ -93,10 +92,5 @@ $prefix: #{$ui}-picker;
       color: $input-disabled-color;
     }
   }
-}
-
-// 动画
-.portal-active .#{$prefix} {
-  transform: translateY(0);
 }
 

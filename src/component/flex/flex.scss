@@ -1,0 +1,25 @@
+@import '../styles/variable';
+@import '../styles/mixin';
+
+$prefix: #{$ui}-flex;
+
+.#{$prefix} {
+  display: flex;
+  @include make-flex(direction);
+  @include make-flex(wrap);
+  @include make-flex(justify);
+  @include make-flex(align);
+  @include make-flex(align-content);
+
+  &-item {
+    flex: 1;
+  }
+
+  &-item + &-item {
+    margin-left: 16px;
+
+    &:first-child {
+      margin-left: 0;
+    }
+  }
+}

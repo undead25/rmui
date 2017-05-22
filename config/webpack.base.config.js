@@ -8,7 +8,7 @@ module.exports = {
    * @see https://webpack.js.org/configuration/entry-context/
    */
   entry: {
-    app: './example/index.tsx',
+    app: ['react-hot-loader/patch', './example/index.tsx'],
     vendor: PROJECT.COMPLIE_VENDORS,
   },
 
@@ -32,7 +32,7 @@ module.exports = {
    */
   resolve: {
     // 自动解析确定的扩展，能够使用户在引入模块时不带扩展
-    extensions: ['.ts', '.tsx', '.js', '.jsx']
+    extensions: ['.ts', '.tsx', '.js', '.jsx', '.json']
   },
 
   /**
@@ -68,10 +68,10 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        exclude: /(node_modules)/,
+        // exclude: /(node_modules)/,
         loader: ExtractTextPlugin.extract({
           fallback: 'style-loader',
-          use: 'css-loader?minimize&sourceMap!postcss-loader',
+          use: 'css-loader?minimize&sourceMap',
         }),
       },
       {

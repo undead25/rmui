@@ -1,0 +1,76 @@
+$direction: (
+  row: row,
+  row-reverse: row-reverse,
+  column: column,
+  column-reverse: column-reverse
+);
+
+$wrap: (
+  nowrap: nowrap,
+  wrap: wrap,
+  wrap-reverse: wrap-reverse
+);
+
+$justify: (
+  justify-start: flex-start,
+  justify-center: center,
+  justify-end: flex-end,
+  justify-between: space-between,
+  justify-around: space-around
+);
+
+$align-items: (
+  align-top: flex-start,
+  aligin-middle: center,
+  aligin-bottom: flex-end,
+  aligin-baseline: baseline,
+  aligin-stretch: stretch
+);
+
+$align-content: (
+  align-content-start: flex-start,
+  align-content-end: flex-end,
+  align-content-center: flex-start,
+  align-content-between: space-between,
+  align-content-around: space-around,
+  align-content-stretch: stretch
+);
+
+/**
+ * 循环变量得到对应属性和值
+ * @param $name - 属性名称
+ * @param $prop-map - 上方map变量
+ */
+@mixin flex-prop($name, $prop-map) {
+  @each $prop in map-keys($prop-map) {
+    &-#{$prop} {
+      #{$name}: map-get($prop-map, $prop)
+    }
+  }
+}
+
+/**
+ * 根据条件引用不同的循环机制
+ * @param $arg - 参数名称
+ */
+@mixin make-flex($arg) {
+  @if $arg == direction {
+    @include flex-prop(flex-direction, $direction);
+  } 
+  
+  @if $arg == wrap {
+    @include flex-prop(flex-wrap, $wrap);
+  }
+
+  @if $arg == justify {
+    @include flex-prop(justify-content, $justify);
+  }
+
+  @if $arg == align {
+    @include flex-prop(align-items, $align-items);
+  }
+
+  @if $arg == align-content {
+    @include flex-prop(align-content, $align-content);
+  }
+}

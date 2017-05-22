@@ -53,3 +53,82 @@ $prefix: #{$ui}-animate;
 .#{$prefix}-slide-down {
   animation: slideDown ease .3s forwards;
 }
+
+@keyframes slideInDown {
+  from {
+    transform: translate3d(0, -100%, 0);
+    visibility: visible;
+  }
+
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.#{$prefix}-slide-in-down {
+  animation: slideInDown ease .3s forwards;
+}
+
+@keyframes slideOutUp {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+
+  to {
+    transform: translate3d(0, -100%, 0);
+    visibility: hidden;
+  }
+}
+
+.#{$prefix}-slide-out-up {
+  animation: slideOutUp ease .3s forwards;
+}
+
+
+
+@keyframes slideInUp {
+  from {
+    transform: translate3d(0, 100%, 0);
+  }
+
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.#{$prefix}-slide-in-up {
+  animation: slideInUp ease .3s forwards;
+}
+
+
+@keyframes zoomIn {
+  from {
+    opacity: 0;
+    transform: scale3d(.3, .3, .3);
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+.#{$prefix}-zoom-in {
+  animation: zoomIn ease .3s forwards;
+}
+
+@keyframes zoomOut {
+  from {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+    transform: scale3d(.3, .3, .3);
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+.#{$prefix}-zoom-out {
+  animation: zoomOut ease .3s forwards;
+}

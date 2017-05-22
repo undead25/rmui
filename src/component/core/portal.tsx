@@ -35,7 +35,7 @@ export default class Protal extends React.Component<MUI.PortalProps, any> {
       document.body.appendChild(this.node);
     }
 
-    let children = this.props.children;
+    let children = this.props.children as React.DOMElement<HTMLElement, HTMLElement>;
 
     this.portal = ReactDOM.unstable_renderSubtreeIntoContainer(
       this,
@@ -44,13 +44,13 @@ export default class Protal extends React.Component<MUI.PortalProps, any> {
       // this.props.onUpdate
     );
 
-    setTimeout(()=> (this.node as Element).classList.add('portal-active'), 0);
+    setTimeout(() => (this.node as Element).classList.add('portal-active'), 0);
   }
 
   removePortal = () => {
-    if(this.node) {
+    if (this.node) {
       (this.node as Element).classList.remove('portal-active');
-      setTimeout(()=> {
+      setTimeout(() => {
         ReactDOM.unmountComponentAtNode(this.node as Element);
         document.body.removeChild(this.node as Element);
         this.portal = null;

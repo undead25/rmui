@@ -4,6 +4,7 @@ const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin');
 
 const PROJECT = require('./project.config');
 const baseWebpackConfig = require('./webpack.base.config');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports = merge(baseWebpackConfig, {
   /**
@@ -31,6 +32,9 @@ module.exports = merge(baseWebpackConfig, {
     // 第三方插件，优化提示效果
     // https://github.com/geowarin/friendly-errors-webpack-plugin
     new FriendlyErrorsPlugin(),
+
+    // https://github.com/th0r/webpack-bundle-analyzer
+    new BundleAnalyzerPlugin()
   ],
 
   /**

@@ -1,8 +1,7 @@
 {
-  "name": "cf-mui",
+  "name": "rc-mui",
   "version": "1.0.1",
-  "description": "cf react mobile component",
-  "private": true,
+  "description": "react mobile component",
   "scripts": {
     "clean": "rimraf dist",
     "start": "webpack-dev-server --config config/webpack.dev.config.js --progress --open",
@@ -14,16 +13,8 @@
   "author": "cf-fed",
   "dependencies": {
     "prop-types": "^15.5.8",
-    "react": "^15.4.2",
-    "react-dom": "^15.4.2",
-    "react-redux": "^5.0.3",
-    "react-router": "^3.0.2",
-    "react-tap-event-plugin": "^2.0.1",
-    "react-transition-group": "^1.1.3",
-    "redux": "^3.6.0",
-    "redux-thunk": "^2.2.0",
-    "rmc-picker": "^3.8.5",
-    "whatwg-fetch": "^2.0.3"
+    "react": "^15.5.4",
+    "react-dom": "^15.4.2"
   },
   "devDependencies": {
     "@types/node": "^7.0.8",
@@ -52,14 +43,22 @@
     "postcss-loader": "^1.3.3",
     "postcss-pxtorem": "^4.0.1",
     "react-addons-perf": "^15.4.2",
+    "react-hot-loader": "^3.0.0-beta.7",
+    "react-redux": "^5.0.4",
+    "react-router": "^3.0.2",
+    "redux": "^3.6.0",
+    "redux-thunk": "^2.2.0",
     "rimraf": "^2.6.1",
     "sass-loader": "^6.0.2",
     "style-loader": "^0.13.2",
     "stylelint": "^7.10.1",
+    "tslint": "^5.2.0",
+    "tslint-react": "^3.0.0",
     "typescript": "^2.3.2",
     "url-loader": "^0.5.8",
-    "webpack": "^2.2.1",
-    "webpack-dev-server": "^2.4.2",
+    "webpack": "^2.5.1",
+    "webpack-bundle-analyzer": "^2.8.2",
+    "webpack-dev-server": "^2.4.5",
     "webpack-merge": "^4.1.0"
   },
   "engines": {

@@ -1,0 +1,56 @@
+@import '../styles/variable';
+@import '../styles/mixin';
+
+$prefix: #{$ui}-dialog;
+
+.#{$prefix} {
+  position: fixed;
+  overflow: hidden;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  z-index: $zindex-dialog;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.#{$prefix}-content {
+  background-color: #fff;
+  overflow: hidden;
+  border-radius: 14px;
+  width: 540px;
+  padding-top: 30px;
+  text-align: center;
+}
+
+.#{$prefix}-title {
+  padding: 12px 30px 30px;
+  font-size: 34px;
+  line-height: 1;
+}
+
+.#{$prefix}-body {
+  padding: 0 30px 30px;
+  font-size: 26px;
+}
+
+.#{$prefix}-footer {
+  border-top: 1PX solid $color-border;
+  display: flex;
+  line-height: 96px;
+
+  .#{$prefix}-button {
+    flex: 1;
+    text-align: center;
+    font-size: 32px;
+    color: map-get($colorful, blue);
+    @include ellipsis;
+
+    &:first-child {
+      border-right: 1PX solid $color-border;
+    }
+  }
+}

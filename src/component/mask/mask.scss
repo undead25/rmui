@@ -11,16 +11,9 @@ $prefix: #{$ui}-mask;
   right: 0;
   bottom: 0;
   z-index: $zindex-mask;
-  opacity: 0;
-  transition: opacity .3s ease-in;
 
   // 透明遮罩
   &.transparent {
     background-color: transparent;
   }
-}
-
-// 动画
-.portal-active .#{$prefix} {
-  opacity: 1;
 }

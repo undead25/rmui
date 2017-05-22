@@ -42,7 +42,7 @@ export default function Cell(props: MUI.ListItemProps) {
           </div>
         }
         {value && <div className={`${prefix}-value`}>{typeof value === 'function' ? value() : value}</div>}
-        {arrow && <div className={arrowCls}></div>}
+        {arrow && <div className={arrowCls}/>}
       </div>
     </div>
   );

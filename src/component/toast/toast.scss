@@ -1,0 +1,43 @@
+@import '../styles/variable';
+@import '../styles/mixin';
+
+$prefix: #{$ui}-toast;
+
+.#{$prefix} {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .#{$prefix}-content {
+    color: #fff;
+    min-width: 120px;
+    border-radius: 5px;
+    padding: 18px 30px;
+    background-color: rgba(40,40,40,.75);
+    text-align: center;
+  }
+  
+  &.#{$prefix}-top {
+    align-items: flex-start;
+
+    .#{$prefix}-content {
+      border-radius: 0 0 5px 5px;
+    }
+  }
+
+  &.#{$prefix}-full .#{$prefix}-content {
+    width: 100%;
+    border-radius: 0;
+  }
+
+  &.#{$prefix}-error .#{$prefix}-content {
+    background-color: rgba(map-get($colorful, red), .75);
+  }
+}

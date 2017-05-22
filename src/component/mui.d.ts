@@ -7,7 +7,7 @@ declare namespace MUI {
     /** 样式名称 */
     className?: string;
     /** 子 DOM 元素*/
-    children?: any;
+    children?: React.ReactNode;
     /** style 属性 */
     style?: React.CSSProperties;
     /** 样式前缀，避免样式冲突 */
@@ -98,35 +98,79 @@ declare namespace MUI {
     defaultChecked?: boolean;
   }
 
-  interface MaskProps extends Element {
+  interface MaskProps extends React.HTMLProps<HTMLDivElement> {
     // 是否透明
     transparent?: boolean;
   }
 
   interface PickerProps extends Element {
+    defaultSelect?: any;
     show?: boolean;
-    items: Array<any>;
+    data?: Array<any>;
     columns?: number;
     /** 选中值, 对应items数据源的相应级层value。例：[value1, value2, value3] */
     labelCancel?: string;
     selected?: Array<any>;
-    onCancel?: () => any;
+    onCancel?: (e) => any;
     labelConfirm?: string;
     multiple?: boolean;
-    onConfirm?: (selected: Array<any>) => any;
+    onChange?: (a, b) => any;
+    onConfirm?: (selectedValue: Array<any>) => any;
+    onColunmChange?: (selected: any, index: number, columnIdx: number, selectedIdx: any, picker: any) => any;
   }
 
-  interface PickerItemProps extends Element {
+  interface PickerColumnProps extends Element {
     defaultIndex?: number;
+    /** 列数据 */
     items: Array<any>;
     mapKeys?: any;
-    onChange?: (selected: Array<any>, index: number) => any;
+    /** 列索引 */
+    columnIdx?: number;
+    onChange?: (selected: any, index: number, columnIdx: number) => any;
+    /** 每列每项高度 */
+    itemHeight?: number;
+    /** 指示器距离顶部的距离 */
+    indicatorTop?: number;
+    /** 指示器高度 */
+    indicatorHeight?: number;
+    /** 是否使用动画 */
+    animation?: boolean;
   }
 
   interface PickerCascadeProps extends Element {
+    /** 是否显示 */
     show?: boolean;
-    items?: Array<any>;
-    selected?: Array<any>;
-    dataMap?: any;
+    /** 数据 */
+    data: Array<any>;
+    selected?: any;
+    dataMap?: { id: string, items: string };
+    /** 取消传值 */
+    onCancel?: () => any;
+    /** 确定传值 */
+    onConfirm?: (value: Array<string>) => any;
+  }
+
+  interface ToastProps extends React.HTMLProps<HTMLDivElement> {
+    show?: boolean;
+    duration?: number;
+    onClose?: () => any;
+    placement?: 'top' | 'bottom' | 'center';
+    full?: boolean;
+    type?: 'error'
+  }
+
+  interface DialogProps extends React.HTMLProps<HTMLDivElement> {
+    show?: boolean;
+    onClose?: () => any;
+    title?: string;
+    buttons: Array<{ label, action?}>;
+  }
+
+  interface FlexProps extends Element {
+    direction?: 'row' | 'row-reverse' | 'column' | 'column-reverse';
+    wrap?: 'nowrap' | 'wrap' | 'wrap-reverse';
+    justify?: 'start' | 'end' | 'center' | 'between' | 'around';
+    alignItems?: 'top' | 'start' | 'middle' | 'center' | 'bottom' | 'end' | 'baseline' | 'stretch';
+    alignContent?: 'start' | 'end' | 'center' | 'between' | 'around' | 'stretch';
   }
 }

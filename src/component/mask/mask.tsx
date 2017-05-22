@@ -13,6 +13,6 @@ export default function Mask(props: MUI.MaskProps) {
   });
 
   return (
-    <div className={cls} {...others}></div>
+    <div className={cls} {...others}/>
   );
 }

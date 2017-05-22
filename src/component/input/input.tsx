@@ -4,15 +4,15 @@ import PropTypes from 'prop-types';
 
 import './input.scss';
 
-export default class Input extends React.Component<MUI.InputProps, any> {
+export default class Input extends React.Component<MUI.InputProps, {}> {
 
   public render(): JSX.Element {
     const {
-      prefix = "mui-input",
+      prefix = 'mui-input',
       labelWidth = 5,
       style,
       placeholder,
-      type = "text",
+      type = 'text',
       name,
       maxLength,
       className,

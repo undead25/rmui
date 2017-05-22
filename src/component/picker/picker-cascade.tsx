@@ -1,35 +1,43 @@
 import * as React from 'react';
 import * as classNames from 'classnames';
-
 import Picker from './picker';
 
 export default class PickerCascade extends React.Component<MUI.PickerCascadeProps, any> {
-  private group: Array<any> = [];
-  private selected;
-  private text = '';
 
-  constructor(props) {
+  static defaultProps = {
+    dataMap: { id: 'name', items: 'sub' },
+    selected: [],
+    show: false
+  };
+
+  private text: Array<string> = [];
+
+  /**
+   * PickerCascade 构造函数
+   * @param {MUI.PickerCascadeProps} props - Props 属性
+   */
+  constructor(props: MUI.PickerCascadeProps) {
     super(props);
-    const { items = [], selected, dataMap = { id: 'name', items: 'sub' } } = this.props;
-    const { group, newselected } = this.parseData(items, dataMap.items, selected);
-    this.group = group;
-    this.selected = newselected;
+    const { data, selected, dataMap } = props;
+    const { parsedData, newselected } = this.parseData(data, dataMap.items, selected);
+    this.state = {
+      data: parsedData,
+      selected: newselected
+    };
   }
 
-  public render() {
-    const { items = [], show = false, dataMap = { id: 'name', items: 'sub' } } = this.props;
-    return (
-      <Picker
-        show={show}
-        items={this.group}
-        selected={this.selected}
-      />
-    );
-  }
-
-  private parseData(data, subKey, selected, group:Array<any> = [], newSelected:Array<any> = []) {
-    const { dataMap = { id: 'name', items: 'sub' } } = this.props;
-    let _selected = 0;
+  /**
+   * 解析数据，将传入数据解析成多列可处理数据
+   * @param {Array<any>} data 
+   * @param {string} subKey 
+   * @param {Array<any>} [selected=[]] 
+   * @param {Array<any>} [group=[]] 
+   * @param {Array<any>} [newselected=[]] 
+   * @returns {{ parsedData: Array<any>, newselected: Array<any> }} 
+   */
+  // tslint:disable-next-line:max-line-length
+  public parseData(data: Array<any>, subKey: string, selected: Array<any> = [], group: Array<any> = [], newselected: Array<any> = []): { parsedData: Array<any>, newselected: Array<any> } {
+    let _selected: number = 0;
 
     if (Array.isArray(selected) && selected.length > 0) {
       let _selectedClone = selected.slice(0);
@@ -41,50 +49,78 @@ export default class PickerCascade extends React.Component<MUI.PickerCascadeProp
       _selected = 0;
     }
 
-    newSelected.push(_selected);
+    newselected.push(_selected);
 
     let item = data[_selected];
 
-    let _group = JSON.parse(JSON.stringify(data));
+    var _group = JSON.parse(JSON.stringify(data));
     _group.forEach(g => delete g[subKey]);
-    group.push({ items: _group, mapKeys: { 'label': dataMap.id } });
+    group.push({ items: _group, mapKeys: { 'label': this.props.dataMap.id } });
+
     if (typeof item[subKey] !== 'undefined' && Array.isArray(item[subKey])) {
-      return this.parseData(item[subKey], subKey, selected, group, newSelected);
+      return this.parseData(item[subKey], subKey, selected, group, newselected);
     } else {
-      return { group, newSelected };
+      return { parsedData: group, newselected };
     }
   }
 
-  private handleChange() {
+  /**
+   * Column改变后更新列内容
+   * @param {object} item - 改变的 item 内容
+   * @param {number} itemIdx - 改变的 item 索引值
+   * @param {number} columnIdx - 改变的列索引
+   * @param {Array<any>} selected - 改变后选中的值
+   * @param {Picker} picker - picker组件
+   */
+  // tslint:disable-next-line:no-unused-variable
+  public updateColumn = (item: object, itemIdx: number, columnIdx: number, selected: Array<any>, picker: Picker) => {
+    const { data, dataMap } = this.props;
+    const { parsedData, newselected } = this.parseData(data, dataMap.items, selected);
 
+    this.setState({
+      data: parsedData,
+      selected: newselected
+    }, () => this.adjustSelectedValue(newselected));
+
+    // update picker
+    picker.setState({ selected: newselected });
   }
 
-  private updateGroup(item, i, groupIndex, selected, picker) {
-    const { items, dataMap } = this.props;
-    //validate if item exists
-
-    const { group, newselected } = this.parseData(items, dataMap.items, selected);
-
-    let text = '';
-    try {
-      group.forEach((group, _i) => {
-        text += `${group['items'][selected[_i]][this.props.dataMap.id]} `;
-      });
-    } catch (err) {
-      //wait
-      text = this.text;
-    }
-
-
-    //console.log(groups)
-    this.group = group;
-    this.text = text;
-    this.selected = newselected;
-
-    //update picker
-    // picker.setState({
-    //   selected: newselected
-    // });
+  /**
+   * 根据selected索引调整选中值传给父组件
+   * @param {Array<any>} selected 
+   */
+  public adjustSelectedValue(selected: Array<any>): void {
+    let _text = [];
+    
+    this.state.data.forEach((group, _i) => {
+      _text.push(group.items[selected[_i]][this.props.dataMap.id]);
+    });
+    
+    this.text = _text;
   }
 
-};
+  /**
+   * 点击确定按钮后，emit 选中数据给父组件
+   */
+  public handleConfirm = (): void => {
+    if (this.props.onConfirm) this.props.onConfirm(this.text);
+  }
+
+  /**
+   * Render() 渲染 DOM
+   * @returns {JSX.Element}
+   */
+  public render(): JSX.Element {
+    return (
+      <Picker
+        show={this.props.show}
+        onColunmChange={this.updateColumn}
+        onConfirm={this.handleConfirm}
+        defaultSelect={this.state.selected}
+        data={this.state.data}
+        onCancel={this.props.onCancel}
+      />
+    );
+  }
+}
