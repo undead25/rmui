@@ -1,16 +1,12 @@
 {
-  "name": "rc-mui",
-  "version": "1.0.1",
+  "name": "rmui",
+  "version": "0.0.1",
   "description": "react mobile component",
   "scripts": {
     "clean": "rimraf dist",
-    "start": "webpack-dev-server --config config/webpack.dev.config.js --progress --open",
-    "prebuild": "npm run clean",
-    "build": "webpack --config config/webpack.prod.config.js",
-    "postbuild": "http-server dist -p 8001 -o"
+    "start": "webpack-dev-server --config config/webpack.dev.config.js --progress --open"
   },
-  "keywords": [],
-  "author": "cf-fed",
+  "author": "undead25",
   "dependencies": {
     "prop-types": "^15.5.8",
     "react": "^15.5.4",
