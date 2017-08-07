@@ -35,11 +35,11 @@ export default class Protal extends React.Component<MUI.PortalProps, any> {
       document.body.appendChild(this.node);
     }
 
-    let children = this.props.children as React.DOMElement<HTMLElement, HTMLElement>;
+    let children = this.props.children;
 
     this.portal = ReactDOM.unstable_renderSubtreeIntoContainer(
       this,
-      children,
+      children as any,
       this.node as Element
       // this.props.onUpdate
     );

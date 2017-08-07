@@ -9,7 +9,6 @@ import App from './app';
 //   window['Perf'] = Perf;
 // }
 
-
 const store = configureStore();
 const rootElement = document.getElementById('app');
 const routes = require('./routes/index').default(store);
@@ -17,7 +16,7 @@ const routes = require('./routes/index').default(store);
 const render = Component => {
   ReactDOM.render(
     <AppContainer>
-      <Component store={store} routes={routes}/>
+      <Component store={store} routes={routes} />
     </AppContainer>,
     rootElement
   );

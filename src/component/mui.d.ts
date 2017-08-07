@@ -13,7 +13,7 @@ declare namespace MUI {
     /** 样式前缀，避免样式冲突 */
     prefix?: string;
     /** 点击事件 */
-    onClick?: (e: React.MouseEvent<Element>) => any;
+    onClick?: (e: React.MouseEvent<HTMLElement>) => any;
   }
 
   interface PortalProps extends Element {
@@ -104,7 +104,8 @@ declare namespace MUI {
   }
 
   interface PickerProps extends Element {
-    defaultSelect?: any;
+    // defaultSelect?: any;
+    value?: string;
     show?: boolean;
     data?: Array<any>;
     columns?: number;
@@ -128,21 +129,21 @@ declare namespace MUI {
     columnIdx?: number;
     onChange?: (selected: any, index: number, columnIdx: number) => any;
     /** 每列每项高度 */
-    itemHeight?: number;
+    // itemHeight?: number;
     /** 指示器距离顶部的距离 */
-    indicatorTop?: number;
+    // indicatorTop?: number;
     /** 指示器高度 */
-    indicatorHeight?: number;
+    // indicatorHeight?: number;
     /** 是否使用动画 */
     animation?: boolean;
   }
 
   interface PickerCascadeProps extends Element {
+    value?: string;
     /** 是否显示 */
     show?: boolean;
     /** 数据 */
     data: Array<any>;
-    selected?: any;
     dataMap?: { id: string, items: string };
     /** 取消传值 */
     onCancel?: () => any;

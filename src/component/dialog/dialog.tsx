@@ -46,10 +46,10 @@ export default class Dialog extends React.Component<MUI.DialogProps, any> {
           </div>
         </div>
       </div>
-    )
+    );
   }
 
-  private componentWillReceiveProps(nextProps: any) {
+  componentWillReceiveProps(nextProps: any) {
     if (nextProps.show) {
       this.setState({ show: true });
     } else {
@@ -64,7 +64,7 @@ export default class Dialog extends React.Component<MUI.DialogProps, any> {
   /**
    * 渲染底部按钮组
    */
-  private renderFooter = () => {
+  renderFooter = () => {
     const { prefix, buttons } = this.props;
     return buttons.map((button, idx) => (
       <a key={idx} className={`${prefix}-button`} onClick={button.action}>{button.label}</a>

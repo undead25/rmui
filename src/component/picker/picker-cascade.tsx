@@ -5,8 +5,8 @@ import Picker from './picker';
 export default class PickerCascade extends React.Component<MUI.PickerCascadeProps, any> {
 
   static defaultProps = {
-    dataMap: { id: 'name', items: 'sub' },
-    selected: [],
+    dataMap: { id: 'label', items: 'children' },
+    selected: [1, 1, 1],
     show: false
   };
 
@@ -18,11 +18,11 @@ export default class PickerCascade extends React.Component<MUI.PickerCascadeProp
    */
   constructor(props: MUI.PickerCascadeProps) {
     super(props);
-    const { data, selected, dataMap } = props;
-    const { parsedData, newselected } = this.parseData(data, dataMap.items, selected);
+    const { data, dataMap } = props;
+    const { parsedData } = this.parseData(data, dataMap.items);
     this.state = {
       data: parsedData,
-      selected: newselected
+      selected: []
     };
   }
 
@@ -117,7 +117,7 @@ export default class PickerCascade extends React.Component<MUI.PickerCascadeProp
         show={this.props.show}
         onColunmChange={this.updateColumn}
         onConfirm={this.handleConfirm}
-        defaultSelect={this.state.selected}
+        value={this.props.value}
         data={this.state.data}
         onCancel={this.props.onCancel}
       />

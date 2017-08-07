@@ -2,7 +2,6 @@ import * as React from 'react';
 import * as classNames from 'classnames';
 
 import PickerColumn from './picker-column';
-// import PickerColumn from './picker_group';
 import { Mask } from '../mask';
 import './picker.scss';
 
@@ -21,9 +20,9 @@ export default class Picker extends React.Component<MUI.PickerProps, any> {
    */
   constructor(props: MUI.PickerProps) {
     super(props);
-    const { defaultSelect, data } = this.props;
+    const { value, data } = this.props;
     this.state = {
-      selected: defaultSelect ? defaultSelect : Array(data.length).fill(-1),
+      selected: [],
       closing: false
     };
   }
@@ -32,9 +31,8 @@ export default class Picker extends React.Component<MUI.PickerProps, any> {
    * 点击确定按钮后，emit 选中数据给父组件
    */
   handleConfirm = (): void => {
-    const {data, onConfirm} = this.props;
+    const { data, onConfirm } = this.props;
     this.handleClose(() => {
-      // 单列传值
       if (this.props.onConfirm) this.props.onConfirm(data[0].items[this.state.selected[0]]);
     });
   }
@@ -115,7 +113,7 @@ export default class Picker extends React.Component<MUI.PickerProps, any> {
    */
   render(): JSX.Element | null {
     // Props 属性
-    const { className, show, data, prefix, defaultSelect, onColunmChange, onConfirm, onCancel } = this.props;
+    const { className, show, data, prefix, onColunmChange, onConfirm, onCancel } = this.props;
 
     // Picker 样式
     const cls = classNames({
@@ -146,5 +144,33 @@ export default class Picker extends React.Component<MUI.PickerProps, any> {
         </div>
       </div>
     ) : null;
+  }
+
+  componentDidMount() {
+    this.props.value && this.parseValueToSelected(this.props.value);
+  }
+
+  private parseValueToSelected = (value: string) => {
+    const { data } = this.props;
+    let values = value.split(',').length >= value.split('，').length ? value.split(',') : value.split('，');
+    if (data.length === 1) {
+      // 单列
+      data[0].items.forEach((item, idx) => {
+        if (item.label === values[0]) {
+          this.setState({ selected: [idx] });
+        }
+      });
+    } else if (data.length > 1) {
+      let selected = [];
+      data.forEach((subData, index) => {
+        // items
+        subData.items.forEach((item, idx) => {
+          if (item.label === values[index]) {
+            selected.push(idx);
+          };
+        });
+      });
+      selected.length && this.setState({selected});
+    }
   }
 }

@@ -46,11 +46,11 @@ export default class Toast extends React.Component<MUI.ToastProps, any> {
     );
   }
 
-  private componentDidMount() {
+  componentDidMount() {
     this.state.show && this.setCloseTimer();
   }
 
-  private componentWillReceiveProps(nextProps: any) {
+  componentWillReceiveProps(nextProps: any) {
     if (nextProps.show && !this.state.show) {
       this.setState({
         closing: true

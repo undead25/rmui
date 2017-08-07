@@ -16,15 +16,21 @@ export const showCitiesAction = {
 };
 
 
-export const districtConfirmAction = (selected) => ({
-  type: 'DISTRICTCONFIRM',
-  selected
-});
+export const districtConfirmAction = (selected) => (dispatch) => {
+  console.log(selected)
+  dispatch({
+    type: 'DISTRICTCONFIRM',
+    selected
+  });
+};
 
-export const citiesConfirmAction = (selected) => ({
-  type: 'CITIESCONFIRM',
-  selected: selected.join(',')
-});
+export const citiesConfirmAction = (selected) => (dispatch) => {
+  console.log(selected)
+  dispatch({
+    type: 'CITIESCONFIRM',
+    selected: selected.join(',')
+  });
+}
 
 
 export const districtConfirmAction2 = (selected) => ({

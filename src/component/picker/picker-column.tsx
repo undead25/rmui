@@ -2,12 +2,11 @@ import * as React from 'react';
 import * as classNames from 'classnames';
 
 export default class PickerColumn extends React.Component<MUI.PickerColumnProps, any> {
-
   static defaultProps = {
-    itemHeight: 68,
-    indicatorTop: 204,
-    indicatorHeight: 68,
-    aniamtion: true,
+    // itemHeight: 68,
+    // indicatorTop: 204,
+    // indicatorHeight: 68,
+    animation: true,
     columnIdx: -1,
     defaultIndex: -1,
     prefix: 'mui-picker',
@@ -15,6 +14,10 @@ export default class PickerColumn extends React.Component<MUI.PickerColumnProps,
       label: 'label'
     }
   };
+
+  private itemHeight;
+  private indicatorTop;
+  private indicatorHeight;
 
   /** 是否在触摸事件中 */
   private isTouching: boolean = false;
@@ -41,6 +44,9 @@ export default class PickerColumn extends React.Component<MUI.PickerColumnProps,
   }
 
   public componentDidMount(): void {
+    this.itemHeight = (this.refs.indicator as HTMLElement).getBoundingClientRect().height;
+    this.indicatorHeight = this.itemHeight;
+    this.indicatorTop = this.itemHeight * 3;
     this.adjustPosition(this.props);
   }
 
@@ -49,7 +55,8 @@ export default class PickerColumn extends React.Component<MUI.PickerColumnProps,
   }
 
   public adjustPosition = (props: MUI.PickerColumnProps): void => {
-    const { items, itemHeight, indicatorTop, defaultIndex } = props;
+    const { items, defaultIndex } = props;
+    const { itemHeight, indicatorTop, } = this;
     let { translate } = this.state;
     if (defaultIndex > -1) {
       translate = indicatorTop - itemHeight * defaultIndex;
@@ -69,7 +76,9 @@ export default class PickerColumn extends React.Component<MUI.PickerColumnProps,
    * @returns {number} - 索引
    */
   adjustSelectedIndex(): number {
-    const { items, itemHeight, indicatorTop, indicatorHeight } = this.props;
+    const { items } = this.props;
+    const { itemHeight, indicatorTop, indicatorHeight} = this;
+    
     const { translate } = this.state;
     let selectedIndex = 0;
 
@@ -134,7 +143,7 @@ export default class PickerColumn extends React.Component<MUI.PickerColumnProps,
   public handleTouchEnd = (): void => {
     if (!this.isTouching || this.props.items.length <= 1) return;
 
-    const { indicatorTop, indicatorHeight, itemHeight } = this.props;
+    const { indicatorTop, indicatorHeight, itemHeight } = this;
     let translate = this.state.translate;
 
     if (Math.abs(translate - this.state.ogTranslate) < (itemHeight * .51)) {
@@ -192,7 +201,7 @@ export default class PickerColumn extends React.Component<MUI.PickerColumnProps,
         onTouchEnd={this.handleTouchEnd}
       >
         <div className={`${prefix}-col-mask`} />
-        <div className={`${prefix}-col-indicator`} />
+        <div className={`${prefix}-col-indicator`} ref="indicator" />
         <div className={`${prefix}-col-content`} style={styles}>
           {items.map((item, j) => {
             const label = item[this.props.mapKeys.label];

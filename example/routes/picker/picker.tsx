@@ -69,12 +69,14 @@ class PagePicker extends React.Component<any, any> {
               data={this.districtData}
               onCancel={onDistrictCancel}
               onConfirm={onDistrictConfirm}
+              value="河南省"
             />}
             <Cell arrow={true} onClick={showCities} value={() => citiesSelected ? citiesSelected : '请选择'}>城市级联</Cell>
             {<PickerCascade
               show={isCitiesShown}
               onCancel={onCitiesCancel}
               onConfirm={onCitiesConfirm}
+              value="广东省, 广州市, 越秀区"
               data={cities}
             />}
           </List>
