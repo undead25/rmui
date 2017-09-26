@@ -1,23 +1,12 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import * as classNames from 'classnames';
-import PropTypes from 'prop-types';
 
 export default class Protal extends React.Component<MUI.PortalProps, any> {
   private node: Node | Element | null;
   private portal: Element | null;
 
-  shouldComponentUpdate(nextProps: MUI.PortalProps) {
-    return (nextProps.isOpen !== this.props.isOpen);
-  }
-
-  componentDidMount() {
-    if (this.props.isOpen) {
-      this.renderPortal();
-    }
-  }
-
-  componentWillReceiveProps(newProps) {
+  public componentWillReceiveProps(newProps) {
     if (typeof newProps.isOpen !== 'undefined') {
       if (newProps.isOpen) {
         this.renderPortal(newProps);
@@ -29,7 +18,19 @@ export default class Protal extends React.Component<MUI.PortalProps, any> {
     }
   }
 
-  renderPortal(props: any = this.props) {
+  public shouldComponentUpdate(nextProps: MUI.PortalProps) {
+    return (nextProps.isOpen !== this.props.isOpen);
+  }
+
+  public render() {
+    return null;
+  }
+
+  public componentDidMount() {
+    this.props.isOpen && this.renderPortal();
+  }
+
+  private renderPortal(props: any = this.props) {
     if (!this.node) {
       this.node = document.createElement('div');
       document.body.appendChild(this.node);
@@ -47,7 +48,7 @@ export default class Protal extends React.Component<MUI.PortalProps, any> {
     setTimeout(() => (this.node as Element).classList.add('portal-active'), 0);
   }
 
-  removePortal = () => {
+  private removePortal() {
     if (this.node) {
       (this.node as Element).classList.remove('portal-active');
       setTimeout(() => {
@@ -57,9 +58,5 @@ export default class Protal extends React.Component<MUI.PortalProps, any> {
         this.node = null;
       }, 300);
     }
-  }
-
-  render() {
-    return null;
   }
 }

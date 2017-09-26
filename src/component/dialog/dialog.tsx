@@ -1,5 +1,6 @@
 import * as React from 'react';
 import * as classNames from 'classnames';
+import Portal from '../core/portal';
 
 import { Mask } from '../mask';
 import './dialog.scss';
@@ -33,9 +34,8 @@ export default class Dialog extends React.Component<MUI.DialogProps, any> {
       'mui-animate-fade-out': this.state.closing,
     });
 
-    return this.state.show && (
-      <div>
-        <Mask className={maskCls} />
+    return (
+      <Portal isOpen={this.state.show}>
         <div className={cls}>
           <div className={`${prefix}-content`}>
             <div className={`${prefix}-title`}>{title}</div>
@@ -45,8 +45,23 @@ export default class Dialog extends React.Component<MUI.DialogProps, any> {
             </div>
           </div>
         </div>
-      </div>
+      </Portal>
     );
+
+    // return this.state.show && (
+    //   <div>
+    //     <Mask className={maskCls} />
+    //     <div className={cls}>
+    //       <div className={`${prefix}-content`}>
+    //         <div className={`${prefix}-title`}>{title}</div>
+    //         <div className={`${prefix}-body`}>{children}</div>
+    //         <div className={`${prefix}-footer`}>
+    //           {this.renderFooter()}
+    //         </div>
+    //       </div>
+    //     </div>
+    //   </div>
+    // );
   }
 
   componentWillReceiveProps(nextProps: any) {
@@ -56,7 +71,7 @@ export default class Dialog extends React.Component<MUI.DialogProps, any> {
       this.setState({
         closing: true
       }, () => setTimeout(() => {
-        this.setState({show: false, closing: false});
+        this.setState({ show: false, closing: false });
       }, 300));
     }
   }

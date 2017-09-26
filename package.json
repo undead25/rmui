@@ -1,6 +1,6 @@
 {
   "name": "rmui",
-  "version": "0.0.1",
+  "version": "0.0.1-alpha1",
   "description": "react mobile component",
   "scripts": {
     "clean": "rimraf dist",
